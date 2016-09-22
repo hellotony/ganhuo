@@ -5,7 +5,8 @@
     <link rel="stylesheet" type="text/css" href="/css/publish.css" />
     <link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />
     <!--引入wangEditor.css-->
-    <link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css">
+    <#--<link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css">-->
+    <link rel="stylesheet" type="text/css" href="/test/wangEditor/css/wangEditor.css">
 </head>
 <style>
     div#t {
@@ -36,7 +37,7 @@
             <label>标题</label>
             <input type="text" class="input" name="title"><br><br>
             <label>类型</label>
-            <select name="type" class="input">
+            <select name="type" class="input type">
                 <#list modules as l>
                     <option value="${l.value!}" class="input">${l.name!}</option>
                 </#list>
@@ -59,6 +60,9 @@
             <!--引入jquery和wangEditor.js-->   <!--注意：javascript必须放在body最后，否则可能会出现问题-->
             <script type="text/javascript" src="/js/lib/jquery-1.10.2.min.js"></script>
             <script type="text/javascript" src="/js/wangEditor.min.js"></script>
+            <script type="text/javascript" src="/test/js/plupload/plupload.full.min.js"></script>
+            <script type="text/javascript" src="/test/js/plupload/i18n/zh_CN.js"></script>
+            <script type="text/javascript" src="/test/js/qiniu.js"></script>
 
             <!--这里引用jquery和wangEditor.js-->
             <script type="text/javascript">
@@ -168,7 +172,7 @@
 //                editor.config.uploadImgFileName = "myFileName";
 //                editor.create();
                 // 生成编辑器
-                var editor = new wangEditor('editor-trigger');
+                var editor = new wangEditor('div1');
                 editor.config.customUpload = true;
                 editor.config.customUploadInit = uploadInit;
                 editor.create();
@@ -202,7 +206,7 @@
                 $("#sub").unbind("click").bind("click",function(){
                     var content = editor.$txt.html();
                     var title = $("input[name='title']").val();
-                    var type = $("input[name='type']").val();
+                    var type = $(".type").val();
                     var id = 0;
 
                     if(content=="" || title==""){
