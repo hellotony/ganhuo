@@ -1,0 +1,141 @@
+body{
+    background: #EDEDED;
+}
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 1000px;
+    height:auto;
+/*    background: #fafcff;*/
+    
+}
+
+.a-left {
+    width: 660px;
+    float: left;
+    min-height: 1000px;
+    /*background: white;*/
+    padding: 15px;
+    /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.35);*/
+/*    border: 1px solid #ddd;*/
+    
+}
+
+
+.a-right {
+    width: 280px;
+    float: right;
+    /*height: 500px;*/
+    /*background: white;*/
+    /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.35);*/
+/*    border: 1px solid #aaa;*/
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.13);
+}
+
+
+.content-title h1 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.content-title {
+    font-size: 22px;
+    color: #333;
+    margin-top: 20px;
+    position: relative;
+}
+
+.content-info {
+    position: relative;
+    height: 14px;
+    /*line-height: 14px;*/
+    line-height: 1.7;
+    /*font-size: 12px;*/
+    font-size: 14px;
+    /*color: #666;*/
+    color: #585858;
+    padding: 10px 0 15px;
+    border-bottom: 1px solid darkcyan;
+}
+
+.info_right {
+    float: right;
+}
+
+
+.info-right {
+    float: right;
+}
+
+em {
+    color: darkcyan;
+}
+
+.content-inner {
+    padding-top: 10px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #585858;
+    font-family: "Microsoft YaHei","WenQuanYi Micro Hei",SimHei,tahoma,sans-serif;
+}
+
+.article-user {
+/*    width: 298px;*/
+/*    border: 1px solid darkcyan;*/
+    border: 1px solid #e5e6e8;
+/*    border-top: 0;*/
+/*    padding: 20px;*/
+}
+
+.user-title {
+    font-size: 16px;
+    position: relative;
+    line-height: 16px;
+    border-left: 2px solid darkcyan;
+    padding: 20px;
+    color: #333;
+}
+
+.clear {
+    margin-bottom: 22px;
+}
+
+.clear-title {
+    font-size: 14px;
+    color: #333;
+    
+}
+
+.user-inner {
+    padding: 20px;
+}
+
+.user-inner-right {
+    float: right;
+    font-style: normal;
+    display: inline-block;
+    margin: 0 2px;
+    margin-right: 4px;
+    font-size: 10px;
+    color: #999;
+}
+
+.clear-topic {
+    font-size: 12px;
+    color: #999;
+}
+
+.article-topic {
+    margin: 0;
+    padding: 0;
+}
+
+blockquote{
+    padding: 1px 20px;
+    border-left: 5px solid darkcyan;
+    border-bottom: 1px solid #eee!important;
+    text-align: left;
+    margin-left: 0px;
+}
+

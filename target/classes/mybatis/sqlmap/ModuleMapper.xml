@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ganhuo.mapper.ModuleMapper">
+
+	<resultMap
+		type="com.ganhuo.model.domain.Module"
+		id="moduleMap">
+			<result column="id" property="id" />
+			<result column="name" property="name" />
+			<result column="value" property="value" />
+			<result column="count" property="count" />
+			<result column="del_flag" property="delFlag" />
+			<result column="add_time" property="addTime" />
+			<result column="update_time" property="updateTime" />
+	</resultMap>
+	
+	<sql id="setAllColumns">
+		<set>
+			<if test="id != null">id = #{id},</if>
+			<if test="name != null">name = #{name},</if>
+			<if test="value != null">value = #{value},</if>
+			<if test="count != null">count = #{count},</if>
+			<if test="delFlag != null">del_flag = #{delFlag},</if>
+			<if test="addTime != null">add_time = #{addTime},</if>
+			<if test="updateTime != null">update_time = #{updateTime},</if>
+		</set>
+	</sql>
+
+	<sql id="selectAllColumns">
+			id,
+			name,
+			value,
+			count,
+			del_flag,
+			add_time,
+			update_time
+	</sql>
+
+	<insert id="insert" parameterType="com.ganhuo.model.domain.Module"
+			useGeneratedKeys="true" keyProperty="id">
+		insert into Module
+		<include refid="setAllColumns"/>
+	</insert>
+	<select id="getModuleById" resultMap="moduleMap">
+		SELECT <include refid="selectAllColumns"/>
+		from module where id = #{id}
+	</select>
+
+	<select id="getFirstModule" resultMap="moduleMap">
+		SELECT <include refid="selectAllColumns"/>
+		from module ORDER BY id limit 1
+	</select>
+
+	<select id="getModuleListByType" resultMap="moduleMap" >
+		SELECT <include refid="selectAllColumns"/>
+		from module where type= #{typeId} limit 9
+	</select>
+
+	<select id="getModuleList" resultMap="moduleMap" >
+		SELECT <include refid="selectAllColumns"/>
+		from module;
+	</select>
+
+	<update id="updateModuleCount">
+		update module set count = count+1 where id = #{type}
+	</update>
+
+
+	
+
+</mapper>

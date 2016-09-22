@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ganhuo.mapper.AgentUserMapper">
+
+	<resultMap
+		type="com.ganhuo.model.domain.AgentUser"
+		id="AgentUserMap">
+			<result column="id" property="id" />
+			<result column="uid" property="uid" />
+			<result column="name" property="name" />
+			<result column="mobile" property="mobile" />
+			<result column="level" property="level" />
+			<result column="bank_name" property="bankName" />
+			<result column="bank_account" property="bankAccount" />
+			<result column="identity_no" property="identityNo" />
+			<result column="parent_id" property="parentId" />
+			<result column="contract_id" property="contractId" />
+			<result column="enable_brokerage" property="enableBrokerage" />
+			<result column="enable_online_brokerage" property="enableOnlineBrokerage" />
+			<result column="enable_login" property="enableLogin" />
+			<result column="promo_code" property="promoCode" />
+			<result column="gmt_create" property="gmtCreate" />
+			<result column="gmt_modified" property="gmtModified" />
+	</resultMap>
+	
+	<sql id="setAllColumns">
+		<set>
+			<if test="id != null">id = #{id},</if>
+			<if test="uid != null">id = #{uid},</if>
+			<if test="name != null">name = #{name},</if>
+			<if test="mobile != null">mobile = #{mobile},</if>
+			<if test="level != null">level = #{level},</if>
+			<if test="bankName != null">bank_name = #{bankName},</if>
+			<if test="bankAccount != null">bank_account = #{bankAccount},</if>
+			<if test="identityNo != null">identity_no = #{identityNo},</if>
+			<if test="parentId != null">parent_id = #{parentId},</if>
+			<if test="contractId != null">contract_id = #{contractId},</if>
+			<if test="enableBrokerage != null">enable_brokerage = #{enableBrokerage},</if>
+			<if test="enableOnlineBrokerage != null">enable_online_brokerage = #{enableOnlineBrokerage},</if>
+			<if test="enableLogin != null">enable_login = #{enableLogin},</if>
+			<if test="promoCode != null">promo_code = #{promoCode},</if>
+			gmt_modified = now()
+		</set>
+	</sql>
+
+	<sql id="selectAllColumns">
+			id,
+			uid,
+			name,
+			mobile,
+			level,
+			bank_name,
+			bank_account,
+			identity_no,
+			parent_id,
+			contract_id,
+			enable_brokerage,
+			enable_online_brokerage,
+			enable_login,
+			promo_code,
+			gmt_create,
+			gmt_modified
+	</sql>
+	
+
+	<update id="updateAgentUser">
+		update agent_user
+		<include refid="setAllColumns" />
+		where id = #{id}
+	</update>
+	
+	<select id="getAgentUserById" resultMap="AgentUserMap">
+		select
+		<include refid="selectAllColumns" />
+		from agent_user where id = #{id}
+	</select>
+	
+	<select id="getCountOfAgentUser" resultType="int">
+		select count(id) from agent_user
+	</select>
+	
+	<select id="getAllAgentUser" resultMap="AgentUserMap">
+		select
+		<include refid="selectAllColumns" />
+		from agent_user order by id DESC limit #{count} offset #{offset}
+	</select>
+	
+	<delete id="deleteAgentUserById">
+		delete from agent_user where id = #{id}
+	</delete>
+	
+	<select id="getAgentUserByMobile" resultMap="AgentUserMap">
+		select
+		<include refid="selectAllColumns" />
+		from agent_user where mobile = #{mobile}
+	</select>
+	
+	<select id="getAgentUserByContractId" resultMap="AgentUserMap">
+		select
+		<include refid="selectAllColumns" />
+		from agent_user where contractId = #{contractId}
+	</select>
+	
+	<select id="getAgentUserIdsOfHenchman" resultType="java.lang.Long">
+		select id from agent_user where parent_id = #{agentUserId}
+	</select>
+	
+	<select id="getAgentUserByPromoCode" resultMap="AgentUserMap">
+		select
+		<include refid="selectAllColumns" />
+		from agent_user where promoCode = #{promoCode}
+	</select>
+
+	<select id="checkContractEffectByUserId" resultType="int">
+		select s.status
+		from agent_user t,contract s
+		where t.id = #{id}
+		and t.contract_id = s.id
+	</select>
+</mapper>
