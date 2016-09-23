@@ -67,6 +67,14 @@ public class IndexController {
         return result(Host,"/publish",modelAndView);
     }
 
+    @RequestMapping("/publish1")
+    public ModelAndView publish1(@RequestHeader("Host") String Host){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Module> modules = moduleService.getModuleList();
+        modelAndView.addObject("modules",modules);
+        return result(Host,"/publish1",modelAndView);
+    }
+
     @RequestMapping("/article")
     public ModelAndView article(@RequestHeader("Host") String Host){
         Article article = articleService.getFirstArticle();

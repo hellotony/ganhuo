@@ -43,11 +43,17 @@
                 </#list>
             </select>
             <br><br>
-            <label>主题图片</label>
-            <form id="form" action="" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" id="file"><br><br>
-                <input type="button" value="上传" id="uploadTopic">
-            </form>
+            文章介绍<br>
+            <textarea id="articleDesc"></textarea>
+            <div id="container" style="position: relative;">
+                <a class="btn btn-default btn-lg " id="pickfiles" href="#" style="position: relative; z-index: 1;">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>点此添加主题图片</span>
+                </a>
+            </div><br><br>
+            <div>
+                <img src="" border="1" id="topicImage">
+            </div><br><br><br>
 
             <div style="width: 805px;">
                 <div id="div1" style="height:300px;width:auto;" class="submitPage">
@@ -72,7 +78,59 @@
                     window.console && console.log(title, info);
                 }
 
-                // 初始化七牛上传
+                var topicImageUrl = "";
+                var articleDesc="";
+
+                //上传主题图片
+                var uploaderTopic = Qiniu.uploader({
+                    runtimes: 'html5,flash,html4',    //上传模式,依次退化
+                    browse_button: 'pickfiles',       //上传选择的点选按钮，**必需**
+                    uptoken_url: 'http://localhost:8080/uploadToken',
+                    unique_names: true,
+                    domain: 'http://ocgkatm4e.bkt.clouddn.com/',
+                    container: 'container',           //上传区域DOM ID，默认是browser_button的父元素，
+                    max_file_size: '100mb',           //最大文件体积限制
+                    flash_swf_url: '../js/plupload/Moxie.swf',  //引入flash,相对路径
+                    filters: {
+                        mime_types: [
+                            { title: "图片文件", extensions: "jpg,gif,png,bmp" }
+                        ]
+                    },
+                    max_retries: 3,                   //上传失败最大重试次数
+                    dragdrop: false,                   //开启可拖曳上传
+                    drop_element: 'editor-container',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
+                    chunk_size: '4mb',                //分块上传时，每片的体积
+                    auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
+                    init: {
+                        'FilesAdded': function(up, files) {
+                            plupload.each(files, function(file) {
+                                printLog('on FilesAdded');
+                            });
+                        },
+                        'BeforeUpload': function(up, file) {
+                            printLog('on BeforeUpload');
+                        },
+                        'UploadProgress': function(up, file) {
+                        },
+                        'FileUploaded': function(up, file, info) {
+                            printLog(info);
+                            var domain = up.getOption('domain');
+                            var res = $.parseJSON(info);
+                            var sourceLink = domain + res.key; //获取上传成功后的文件的Url
+                            $("#topicImage").attr("src",sourceLink);
+                            topicImageUrl = sourceLink;
+                            printLog(sourceLink);
+                        },
+                        'Error': function(up, err, errTip) {
+                            printLog('on Error');
+                        },
+                        'UploadComplete': function() {
+                            printLog('on UploadComplete');
+                        }
+                    }
+                });
+
+                // 富文本编辑器上传图片
                 function uploadInit() {
                     var editor = this;
                     var btnId = editor.customUploadBtnId;
@@ -102,7 +160,7 @@
                             ]
                         },
                         max_retries: 3,                   //上传失败最大重试次数
-                        dragdrop: true,                   //开启可拖曳上传
+                        dragdrop: false,                   //开启可拖曳上传
                         drop_element: 'editor-container',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
                         chunk_size: '4mb',                //分块上传时，每片的体积
                         auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
@@ -161,52 +219,20 @@
                             // }
                         }
                     });
-                    // domain 为七牛空间（bucket)对应的域名，选择某个空间后，可通过"空间设置->基本设置->域名设置"查看获取
-                    // uploader 为一个plupload对象，继承了所有plupload的方法，参考http://plupload.com/docs
                 }
 
-                //生成编辑器
-//                var editor = new wangEditor('div1');
-//                editor.config.pasteFilter = false;
-//                editor.config.uploadImgUrl = "http://localhost:8080/upload/test";
-//                editor.config.uploadImgFileName = "myFileName";
-//                editor.create();
                 // 生成编辑器
                 var editor = new wangEditor('div1');
                 editor.config.customUpload = true;
                 editor.config.customUploadInit = uploadInit;
                 editor.create();
 
-                var formData = new FormData($("#form")[0]);
-
-
-                var file = $("#file");
-
-                <#--//上传 主题图片-->
-                $("#uploadTopic").unbind("click").bind("click",function(){
-                    $.ajax({
-                        type: "post",
-                        url: "http://${host}/upload/file",
-                        async:false,
-                        data: $("#form").serialize(),
-                        success: function(data) {
-                            if (data == "" || data == undefined) {
-                                alert('返回值为空!');
-                            }
-                            else {
-                                topicImgUrl = data;
-                            }
-                        },
-                        error: function(data) {
-                            alert("获取数据异常");
-                        }
-                    });
-                });
-
+                //上传 编辑器的具体 内容
                 $("#sub").unbind("click").bind("click",function(){
                     var content = editor.$txt.html();
                     var title = $("input[name='title']").val();
                     var type = $(".type").val();
+                    var articleDesc = $("#articleDesc").val();
                     var id = 0;
 
                     if(content=="" || title==""){
@@ -218,7 +244,7 @@
                         type: "post",
                         url: "http://localhost:8080/article/add",
                         async:false,
-                        data: { "content": content,"title":title,"type":type},
+                        data: { "content": content,"title":title,"type":type,"topicImageUrl":topicImageUrl,"articleDesc":articleDesc},
                         success: function(data) {
                             if (data == "" || data == undefined) {
                                 alert('返回值为空!');
@@ -232,9 +258,6 @@
                         }
                     });
                 });
-
-
-
             </script>
         
         </div>

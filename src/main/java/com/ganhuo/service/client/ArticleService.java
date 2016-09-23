@@ -11,9 +11,10 @@ public interface ArticleService {
     /**
      * 插入文章
      * @param content
-     * @return
+     * @param topicImageUrl
+     *@param articleDesc @return
      */
-    Integer add(String content,String title,int type);
+    Integer add(String content, String title, int type, String topicImageUrl, String articleDesc);
 
     /**
      * 通过 id 获取文章

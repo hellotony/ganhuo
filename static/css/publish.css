@@ -3,7 +3,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
-    min-height: 498px;
+    /*min-height: 498px;*/
     margin-top: 30px;
 }
 
@@ -11,11 +11,23 @@
     font-size:24px;
 }
 
-.publish{
-    /*margin-left: 30px;*/
-}
 
 .input{
-    width:300px;
-    height: 35px;
+    height: 42px;
+    max-width: 300px;
+    border-radius: 4px;
+    margin-right: 14px;
+    border-color: #dcdfe5;
+}
+
+#articleDesc{
+    margin: 0px;
+    width: 752px;
+    height: 183px;
+    border-radius: 8px;
+}
+
+#topicImage{
+    width:360px;
+    height:205px;
 }

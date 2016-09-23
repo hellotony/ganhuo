@@ -20,14 +20,15 @@ public class ArticleServiceImpl implements ArticleService {
 
 
     @Override
-    public Integer add(String content,String title,int type) {
+    public Integer add(String content, String title, int type, String topicImageUrl, String articleDesc) {
         if(StringUtils.isBlank(content) || StringUtils.isBlank(title)){
             return 0;
         }
         Article article = new Article();
         article.setTitle(title);
         article.setType(type);
-        article.setDescription("文章简介");
+        article.setDescription(articleDesc);
+        article.setImgUrl(topicImageUrl);
         article.setContent(content);
         article.setReadTimes(12);
         article.setCommend(2);

@@ -11,6 +11,7 @@
 			<result column="id" property="id" />
 			<result column="title" property="title" />
 			<result column="type" property="type" />
+			<result column="img_url" property="imgUrl" />
 			<result column="description" property="description" />
 			<result column="content" property="content" />
 			<result column="read_times" property="readTimes" />
@@ -26,6 +27,7 @@
 			<if test="title != null">title = #{title},</if>
 			<if test="type != null">type = #{type},</if>
 			<if test="description != null">description = #{description},</if>
+			<if test="imgUrl != null">img_url = #{imgUrl},</if>
 			<if test="content != null">content = #{content},</if>
 			<if test="readTimes != null">read_times = #{readTimes},</if>
 			<if test="commend != null">commend = #{commend},</if>
@@ -40,6 +42,7 @@
 			title,
 			type,
 			description,
+			img_url,
 			content,
 			read_times,
 			commend,

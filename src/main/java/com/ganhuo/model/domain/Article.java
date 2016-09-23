@@ -16,6 +16,9 @@ public class Article extends BaseEntity {
     @Column(name="description",description = "文章简介")
     private String description;
 
+    @Column(name="img_url",description = "主题图片 链接")
+    private String imgUrl;
+
     @Column(name = "type",description = "文章类型")
     private Integer type;
 
@@ -85,5 +88,13 @@ public class Article extends BaseEntity {
 
     public void setCommend(int commend) {
         this.commend = commend;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

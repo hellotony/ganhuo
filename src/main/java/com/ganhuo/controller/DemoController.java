@@ -81,6 +81,21 @@ public class DemoController {
 		return new ModelAndView("/publish");
 	}
 
+	@RequestMapping("/publish1")
+	public ModelAndView publish1(){
+		return new ModelAndView("/publish1");
+	}
+
+	@RequestMapping("/qiniuIndex")
+	public ModelAndView qiniuIndex(){
+		return new ModelAndView("/qiniuIndex");
+	}
+
+	@RequestMapping("/qiniuMultiple")
+	public ModelAndView qiniuMultiple(){
+		return new ModelAndView("/qiniuMultiple");
+	}
+
 	/**
 	 * 登出、退出
 	 * */

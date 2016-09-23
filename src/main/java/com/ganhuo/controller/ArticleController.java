@@ -24,9 +24,9 @@ public class ArticleController {
     private ModuleService moduleService;
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String add(String content,String title,int type){
+    public String add(String content,String title,int type,String topicImageUrl,String articleDesc){
         //添加文章
-        Integer id = articleService.add(content,title,type);
+        Integer id = articleService.add(content,title,type,topicImageUrl,articleDesc);
         //更新模块文章数量
         moduleService.updateModuleCount(type);
 
