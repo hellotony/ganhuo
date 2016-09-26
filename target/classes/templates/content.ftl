@@ -34,9 +34,9 @@
                         </a>
                     </div>
                     <a href="http://${host}/article/${l.id!}">
-                        <img data-height="235" data-width="330" src="http://2.im.guokr.com/1shXGBw_D62QP0FIqxjTIWi_R4pT8APxE1nJgee70TZKAQAA6wAAAEpQ.jpg" height="207">
+                        <img data-height="235" data-width="330" src="${l.imgUrl}" height="207">
                     </a>
-                    <p class="article-summry">一项新研究指出，从基因分析的数据来看，看起来模样差不多的长颈鹿们其实分别属于4个不同的物种。</p>
+                    <p class="article-summry">${l.description}</p>
                 </div>
             </#list>
 

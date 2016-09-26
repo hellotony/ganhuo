@@ -12,6 +12,11 @@
     border: 1px solid darkcyan;
 }
 
+.content img{
+    width: 290px;
+    /*height: 270px;*/
+}
+
 
 .content {
     margin-left: auto;

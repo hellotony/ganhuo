@@ -11,7 +11,7 @@ a{
 }
 
 a:visited, a:link, a:active {
-    color: #333 !important;
+    color: #333;
 }
 a:hover{
     color: darkcyan;
@@ -37,7 +37,7 @@ div{
     border: solid 0px #000;
 }
 img{
-    border-radius: 5px;
+    /*border-radius: 5px;*/
 }
 .icon {
     background: url(http://static.hdslb.com/images/base/icons.png) no-repeat;
