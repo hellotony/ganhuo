@@ -26,4 +26,9 @@ public class ModuleServiceImpl implements ModuleService {
     public void updateModuleCount(int type) {
         moduleMapper.updateModuleCount(type);
     }
+
+    @Override
+    public Module getModuleById(Integer id) {
+        return moduleMapper.getModuleById(id);
+    }
 }

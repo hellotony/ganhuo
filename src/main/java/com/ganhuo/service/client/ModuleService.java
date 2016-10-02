@@ -18,4 +18,11 @@ public interface ModuleService {
      * 更新模块文章数量
      */
     void updateModuleCount(int type);
+
+    /**
+     * 通过id 获取 类型
+     * @param id
+     * @return
+     */
+    Module getModuleById(Integer id);
 }

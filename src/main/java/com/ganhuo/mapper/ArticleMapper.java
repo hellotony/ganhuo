@@ -23,4 +23,8 @@ public interface ArticleMapper {
     void updateArticle(Article article);
 
     List<Article> getMostHotArticle(@Param("i") int i);
+
+    List<Article> getArticleByModule(List<Integer> param);
+
+    List<Article> getAllArticle();
 }

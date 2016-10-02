@@ -11,14 +11,14 @@
             <div class="banner-left">
                 <ul>
                     <li><a href="http://${host}/">主站</a></li>
-                    <li><a class="link" href="http://${host}/">其他</a></li>
+                    <#--<li><a class="link" href="http://${host}/">其他</a></li>-->
                 </ul>
             </div>
             <div class="banner-right">
                 <ul>
-                    <li><a href="http://${host}/login">登录</a></li>
-                    <li><a class="link" href="http://${host}/login">注册</a></li>
-                    <li class="tougao"><a href="http://${host}/publish" style="color:white">发布</a></li>
+                    <#--<li><a href="http://${host}/login">登录</a></li>-->
+                    <#--<li><a class="link" href="http://${host}/login">注册</a></li>-->
+                    <#--<li class="tougao"><a href="http://${host}/publish" style="color:white">发布</a></li>-->
                 </ul>
             </div>
 

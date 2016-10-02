@@ -70,5 +70,30 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.getMostHotArticle(i);
     }
 
+    @Override
+    public List<Article> getArticleByModule(List<Integer> param) {
+
+        return articleMapper.getArticleByModule(param);
+    }
+
+    @Override
+    public List<Article> getAllArticle() {
+        return articleMapper.getAllArticle();
+    }
+
+    @Override
+    public Integer update(Integer id, String content, String title, String topicImageUrl, String articleDesc) {
+        Article a = new Article();
+        a.setId(id);
+        a.setTitle(title);
+        a.setContent(content);
+        a.setImgUrl(topicImageUrl);
+        a.setDescription(articleDesc);
+
+        articleMapper.updateArticle(a);
+
+        return 1;
+    }
+
 
 }

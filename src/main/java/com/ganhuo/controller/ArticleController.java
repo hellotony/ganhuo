@@ -33,6 +33,17 @@ public class ArticleController {
         return ""+id;
     }
 
+    @RequestMapping(value = "/update",method = RequestMethod.POST)
+    public String update(Integer id,String content,String title,String topicImageUrl,String articleDesc){
+        //添加文章
+        articleService.update(id,content,title,topicImageUrl,articleDesc);
+
+        //更新模块文章数量
+//        moduleService.updateModuleCount(type);
+
+        return ""+id;
+    }
+
     @RequestMapping("/{articleId}")
     public ModelAndView get(@PathVariable("articleId") Long articleId,@RequestHeader("Host") String Host){
         ModelAndView m = new ModelAndView();
@@ -47,5 +58,38 @@ public class ArticleController {
         m.addObject("host",Host);
         m.setViewName("/article");
         return m;
+    }
+
+
+    @RequestMapping("/edit/{articleId}")
+    public ModelAndView edit(@PathVariable("articleId") Long articleId,@RequestHeader("Host") String Host){
+        ModelAndView modelAndView = new ModelAndView();
+        Article article = articleService.getArticleById(articleId);
+        Module module = moduleService.getModuleById(article.getType());
+        List<Article> recentArticles = articleService.getRecentArticles();
+        List<Module> modules = moduleService.getModuleList();
+        modelAndView.addObject("recentArticles",recentArticles);
+        modelAndView.addObject("modules",modules);
+        modelAndView.addObject("module",module);
+        modelAndView.addObject("article",article);
+        modelAndView.addObject("host",Host);
+        modelAndView.setViewName("/editArticle");
+        return modelAndView;
+    }
+
+    @RequestMapping("/edit/show/{articleId}")
+    public ModelAndView editShow(@PathVariable("articleId") Long articleId,@RequestHeader("Host") String Host){
+        ModelAndView modelAndView = new ModelAndView();
+        Article article = articleService.getArticleById(articleId);
+        Module module = moduleService.getModuleById(article.getType());
+        List<Article> recentArticles = articleService.getRecentArticles();
+        List<Module> modules = moduleService.getModuleList();
+        modelAndView.addObject("recentArticles",recentArticles);
+        modelAndView.addObject("modules",modules);
+        modelAndView.addObject("module",module);
+        modelAndView.addObject("article",article);
+        modelAndView.addObject("host",Host);
+        modelAndView.setViewName("/editShow");
+        return modelAndView;
     }
 }

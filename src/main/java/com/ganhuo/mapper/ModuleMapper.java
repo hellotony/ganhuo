@@ -12,7 +12,7 @@ public interface ModuleMapper {
 
     void insert(Module module);
 
-    Module getModuleById(Long id);
+    Module getModuleById(Integer id);
 
     Module getFirstModule();
 

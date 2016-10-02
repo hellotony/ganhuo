@@ -34,7 +34,7 @@ public class ModuleController {
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("articles", articleList);
         modelAndView.addObject("host",Host);
-        modelAndView.setViewName("/content");
+        modelAndView.setViewName("/table");
         return modelAndView;
     }
 

@@ -54,4 +54,29 @@ public interface ArticleService {
      * @return
      */
     List<Article> getMostHotArticle(int i);
+
+    /**
+     * 通过 module 获取 文章列表
+     * @param param
+     * @return
+     */
+    List<Article> getArticleByModule(List<Integer> param);
+
+    /**
+     * 获取所有的 文章
+     * @return
+     */
+    List<Article> getAllArticle();
+
+    /**
+     * 更新文章
+     *
+     * @param id
+     * @param content
+     * @param title
+     * @param topicImageUrl
+     * @param articleDesc
+     * @return
+     */
+    Integer update(Integer id, String content, String title, String topicImageUrl, String articleDesc);
 }

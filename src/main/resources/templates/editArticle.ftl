@@ -3,6 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/publish.css" />
+    <#--<link rel="stylesheet" type="text/css" href="/css/edit.css" />-->
     <link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />
     <!--引入wangEditor.css-->
     <#--<link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css">-->
@@ -35,15 +36,13 @@
         <span class="title">发表干货</span><br><br>
         <div class="publish">
             <div class="word"><div class="innerWord">标题</div></div>
-            <input type="text" class="input" name="title"><br><br>
+            <input type="text" class="input" name="title" value="${article.title!}"><br><br>
             <div class="word"><div class="innerWord">类型</div></div>
-            <select name="type" class="input type">
-                <#list modules as l>
-                    <option value="${l.value!}" class="input">${l.name!}</option>
-                </#list>
-            </select>
+            <input type="text" class="input" name="title" value="${module.name!}"><br><br>
             <div class="word"><div class="innerWord">文章介绍</div></div>
-            <textarea id="articleDesc"></textarea>
+            <textarea id="articleDesc">
+                ${article.description!}
+            </textarea>
             <div id="container" style="position: relative;">
                 <a class="btn btn-default btn-lg " id="pickfiles" href="#" style="position: relative; z-index: 1;">
                     <i class="glyphicon glyphicon-plus"></i>
@@ -61,6 +60,8 @@
             </div>
             <br>
             <input type="button" name="提交" id="sub" value="提交" class="submitPage">
+            <input type="hidden" name="id" value="${article.id!}">
+            <div style="display: none" class="article">${article.content!}</div>
 
             <!--引入jquery和wangEditor.js-->   <!--注意：javascript必须放在body最后，否则可能会出现问题-->
             <script type="text/javascript" src="/js/lib/jquery-1.10.2.min.js"></script>
@@ -225,14 +226,16 @@
                 editor.config.customUpload = true;
                 editor.config.customUploadInit = uploadInit;
                 editor.create();
+                editor.$txt.html('<p><br></p>');
+                editor.$txt.html($(".article").html());
 
                 //上传 编辑器的具体 内容
                 $("#sub").unbind("click").bind("click",function(){
                     var content = editor.$txt.html();
                     var title = $("input[name='title']").val();
-                    var type = $(".type").val();
+                    var id = $("input[name='id']").val();
+//                    var type = $(".type").val();
                     var articleDesc = $("#articleDesc").val();
-                    var id = 0;
 
                     if(content=="" || title==""){
                         return;
@@ -241,16 +244,11 @@
 //            插入文章
                     $.ajax({
                         type: "post",
-                        url: "http://localhost:8080/article/add",
+                        url: "http://localhost:8080/article/update",
                         async:false,
-                        data: { "content": content,"title":title,"type":type,"topicImageUrl":topicImageUrl,"articleDesc":articleDesc},
+                        data: { "id":id,"content": content,"title":title,"topicImageUrl":topicImageUrl,"articleDesc":articleDesc },
                         success: function(data) {
-                            if (data == "" || data == undefined) {
-                                alert('返回值为空!');
-                            }
-                            else {
-                                id = data;
-                            }
+                            window.location.href="http://${host}/article/edit/show/${article.id}";
                         },
                         error: function(data) {
                             alert("获取数据异常");

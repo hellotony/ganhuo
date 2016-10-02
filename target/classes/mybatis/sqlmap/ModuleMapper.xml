@@ -44,6 +44,7 @@
 		insert into Module
 		<include refid="setAllColumns"/>
 	</insert>
+
 	<select id="getModuleById" resultMap="moduleMap">
 		SELECT <include refid="selectAllColumns"/>
 		from module where id = #{id}

@@ -12,7 +12,7 @@
     <#--头部内容-->
     <#include "common-header.ftl"/>
     <#--头部内容-->
-    <#include "banner.ftl"/>
+    <#--<#include "banner.ftl"/>-->
 
    
     <!--   栏目内容 -->
@@ -66,12 +66,16 @@
                 <div id="respond" class="comment-respond">
                     <h3 id="reply-title" class="comment-reply-title">留下你的牛评！</h3>
                     <form action="" method="post" id="commentform" class="comment-form" novalidate="">
-                        <p class="comment-form-author"><label for="author"><span class="required"></span></label> <input placeholder="您的大名 或 邮箱" id="author" name="author" type="text" value="" size="30" aria-required="true" required="required"></p>
-                        <p class="comment-form-comment"><label for="comment"></label> <textarea id="comment" name="comment" cols="45" rows="8" placeholder="评论内容..." aria-required="true" required="required"></textarea></p>
-                        <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="提交评论">
+                        <p class="comment-form-author"><label for="author"><span class="required"></span></label>
+                            <input placeholder="您的大名 或 邮箱" id="author" name="author" type="text" value="" size="30" aria-required="true" required="required"></p>
+                        <p class="comment-form-comment"><label for="comment"></label>
+                            <textarea id="comment" name="comment" cols="45" rows="8" placeholder="评论内容..." aria-required="true" required="required"></textarea></p>
+                        <p class="form-submit">
+                            <input name="submit" type="submit" id="submit" class="submit" value="提交评论">
                             <input type="hidden" name="comment_post_ID" value="2613" id="comment_post_ID">
                             <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                        </p>					</form>
+                        </p>
+                    </form>
                 </div><!-- #respond -->
             </div>
 

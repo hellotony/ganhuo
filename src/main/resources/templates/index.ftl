@@ -18,7 +18,7 @@
 
     <!--    页面内容        -->
     <div class="content">
-        <div class="overview">
+        <div class="overview"   >
             <div class="overview-left shadow">
                 <div class="topic-preview-wrapper ex ex-s">
                     <div class="topic-preview-list-wrapper">
@@ -61,555 +61,88 @@
             </div>
         
         </div>
-        <div class="g-section-body">
-            <div class="g-left">
-                <div class="b-head">
-                    <div class="left">
-                        <span class="b-head-i"></span>
+        <#list modules as l>
+            <div class="g-section-body">
+                <div class="g-left">
+                    <div class="b-head">
+                        <div class="left">
+                            <span class="b-head-i"></span>
                         <span class="b-head-t">
-                            <a href="index.ftl" target="_blank">
-                                <h2>光影世界</h2>
+                            <a href="http://${host}/module/${l.value}" target="_blank">
+                                <h2>${l.name!}</h2>
                             </a>
                         </span>
                         <span class="b-head-s">
                         当前共有<em>342</em> 部热门影评
                         </span>
+                        </div>
+                        <div class="right"></div>
+
                     </div>
-                    <div class="right"></div>   
-                
-                </div>
-                <div class="b-body">
-                    <li>
-                        <div>
-                            <div class="item">
+                    <div class="b-body">
+                        <#list l.articles as ar>
+                            <li>
                                 <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
+                                    <div class="item">
+                                        <div>
+                                            <div class="image">
+                                                <a class="img" href="http://${host}/article/${ar.id}" title="监控"><img src="${ar.imgUrl!}" alt=""></a>
+                                            </div>
+                                            <div class="word">
+                                                <div class="author">
+                                                    by<span class="au">&nbsp;蜗牛快跑</span>
+                                                </div>
+                                                <div class="title">
+                                                    <h3><a href="http://${host}/article/${ar.id}" class="ti" title="Travel Guide: Walking tour of Massachusetts">${ar.title!}</a></h3>
+                                                    <div class="description">
+                                                        <span>${ar.description!}</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div style="clear:both"></div>
                                 </div>
+                            </li>
+                        </#list>
 
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <#--<li>-->
+                            <#--<div>-->
+                                <#--<div class="item">-->
+                                    <#--<div>-->
+                                        <#--<div class="image">-->
+                                            <#--<a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>-->
+                                        <#--</div>-->
+                                        <#--<div class="word">-->
+                                            <#--<div class="author">-->
+                                                <#--by<span class="au">&nbsp;蜗牛快跑</span>-->
+                                            <#--</div>-->
+                                            <#--<div class="title">-->
+                                                <#--<h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>-->
+                                                <#--<div class="description">-->
+                                                    <#--<span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>-->
+                                                <#--</div>-->
+                                            <#--</div>-->
+                                        <#--</div>-->
+                                    <#--</div>-->
+                                <#--</div>-->
+                                <#--<div style="clear:both"></div>-->
+                            <#--</div>-->
+                        <#--</li>-->
+                        <div style="clear:both"></div>
 
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-
-                    <div style="clear:both"></div>
-
-                </div>
-            </div>
-            <div class="g-right">
-                <div class="g-right-body">
-                    <a class="" href="index.ftl">
-                        <img src="http://i0.hdslb.com/bfs/live/ee4cc7ff3eae8d007fe791d3d64e7366439038d1.jpg@.webp">
-                    </a>
-                </div>
-            </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="g-section-body">
-            <div class="g-left">
-                <div class="b-head">
-                    <div class="left">
-                        <span class="b-head-i"></span>
-                        <span class="b-head-t">
-                            <a href="index.ftl" target="_blank">
-                                <h2>光影世界</h2>
-                            </a>
-                        </span>
-                        <span class="b-head-s">
-                        当前共有<em>342</em> 部热门影评
-                        </span>
                     </div>
-                    <div class="right"></div>
-
                 </div>
-                <div class="b-body">
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-
-                    <div style="clear:both"></div>
-
-                </div>
-            </div>
-            <div class="g-right">
-                <div class="g-right-body">
-                    <a class="" href="index.ftl">
-                        <img src="http://i0.hdslb.com/bfs/live/ee4cc7ff3eae8d007fe791d3d64e7366439038d1.jpg@.webp">
-                    </a>
-                </div>
-            </div>
-            <div style="clear:both"></div>
-        </div>
-        <div class="g-section-body">
-            <div class="g-left">
-                <div class="b-head">
-                    <div class="left">
-                        <span class="b-head-i"></span>
-                        <span class="b-head-t">
-                            <a href="index.ftl" target="_blank">
-                                <h2>光影世界</h2>
-                            </a>
-                        </span>
-                        <span class="b-head-s">
-                        当前共有<em>342</em> 部热门影评
-                        </span>
+                <div class="g-right">
+                    <div class="g-right-body">
+                        <a class="" href="index.ftl">
+                            <img src="http://i0.hdslb.com/bfs/live/ee4cc7ff3eae8d007fe791d3d64e7366439038d1.jpg@.webp">
+                        </a>
                     </div>
-                    <div class="right"></div>
-
                 </div>
-                <div class="b-body">
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <div class="item">
-                                <div>
-                                    <div class="image">
-                                        <a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>
-                                    </div>
-                                    <div class="word">
-                                        <div class="author">
-                                            by<span class="au">&nbsp;蜗牛快跑</span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>
-                                            <div class="description">
-                                                <span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div style="clear:both"></div>
-                        </div>
-                    </li>
-
-                    <div style="clear:both"></div>
-
-                </div>
+                <div style="clear:both"></div>
             </div>
-            <div class="g-right">
-                <div class="g-right-body">
-                    <a class="" href="index.ftl">
-                        <img src="http://i0.hdslb.com/bfs/live/ee4cc7ff3eae8d007fe791d3d64e7366439038d1.jpg@.webp">
-                    </a>
-                </div>
-            </div>
-            <div style="clear:both"></div>
-        </div>
+        </#list>
     </div>
        
     <!--    尾部内容-->

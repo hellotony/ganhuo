@@ -7,6 +7,8 @@
         <a href="index.ftl">媒体果冻</a>
         <a href="index.ftl">免责声明</a>
         <a href="index.ftl">联系我们</a>
+        <a href="http://${host}/edit">编辑内容</a>
+        <a href="http://${host}/publish">发布内容</a>
     </div>
     <div class="fooger-content">
         <p>©2016果壳网    京ICP证100430号    京网文[2015] 0609-239号    新出发京零字东150005号</p>

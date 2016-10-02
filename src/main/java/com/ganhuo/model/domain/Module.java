@@ -4,6 +4,8 @@ import com.ganhuo.model.annotation.db.Column;
 import com.ganhuo.model.annotation.db.Table;
 import com.ganhuo.model.domain.base.BaseEntity;
 
+import java.util.List;
+
 /**
  * Created by sunzhiqiang on 2016/8/26.
  */
@@ -23,6 +25,9 @@ public class Module extends BaseEntity {
 
     @Column(name = "del_flag",description = "删除状态，1：已删除，0：未删除")
     private Integer delFlag;
+
+
+    private List<Article> articles;
 
 
     public String getName() {
@@ -55,5 +60,13 @@ public class Module extends BaseEntity {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
     }
 }
