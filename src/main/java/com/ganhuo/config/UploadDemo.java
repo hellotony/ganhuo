@@ -13,8 +13,8 @@ import java.io.IOException;
 /**
  * Created by sunzhiqiang on 2016/9/22.
  */
-@SpringBootApplication
-@Configuration
+//@SpringBootApplication
+//@Configuration
 public class UploadDemo {
 //    //设置好账号的ACCESS_KEY和SECRET_KEY
 //    String ACCESS_KEY = "Cb1t1_u_nnZQossAwz5hUeun-FRwvWupLze5A-yH";
@@ -55,9 +55,9 @@ public class UploadDemo {
 //        }
 //    }
 
-    public static void main(String args[]) throws IOException{
-        System.out.println("ceshi ");
-        SpringApplication.run(UploadDemo.class, args);
-    }
+//    public static void main(String args[]) throws IOException{
+//        System.out.println("ceshi ");
+//        SpringApplication.run(UploadDemo.class, args);
+//    }
 
 }

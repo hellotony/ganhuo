@@ -34,29 +34,28 @@
     <div class="main-body">
         <span class="title">发表干货</span><br><br>
         <div class="publish">
-            <label>标题</label>
+            <div class="word"><div class="innerWord">标题</div></div>
             <input type="text" class="input" name="title"><br><br>
-            <label>类型</label>
+            <div class="word"><div class="innerWord">类型</div></div>
             <select name="type" class="input type">
                 <#list modules as l>
                     <option value="${l.value!}" class="input">${l.name!}</option>
                 </#list>
             </select>
-            <br><br>
-            文章介绍<br>
+            <div class="word"><div class="innerWord">文章介绍</div></div>
             <textarea id="articleDesc"></textarea>
             <div id="container" style="position: relative;">
                 <a class="btn btn-default btn-lg " id="pickfiles" href="#" style="position: relative; z-index: 1;">
                     <i class="glyphicon glyphicon-plus"></i>
-                    <span>点此添加主题图片</span>
+                    <div class="word"><div class="innerWord">添加图片</div></div>
                 </a>
             </div><br><br>
             <div>
-                <img src="" border="1" id="topicImage">
+                <img src="" border="1" id="topicImage" style="border-color: #dcdfe5">
             </div><br><br><br>
 
             <div style="width: 805px;">
-                <div id="div1" style="height:300px;width:auto;" class="submitPage">
+                <div id="div1" style="height:650px;width:auto;" class="submitPage">
                     <p>请输入内容...</p>
                 </div>
             </div>
