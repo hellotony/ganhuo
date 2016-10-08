@@ -49,6 +49,7 @@ public class IndexController {
             types.add(m.getId());
         }
         List<Article> articles = articleService.getArticleByModule(types);
+        Article art = articleService.getLastArticle();
         for(Module m:modules){
             List<Article> ar = new ArrayList<>();
             System.out.println(m.getId());
@@ -61,6 +62,7 @@ public class IndexController {
         }
         modelAndView.addObject("hotArticles",articles);
         modelAndView.addObject("modules",modules);
+        modelAndView.addObject("art",art);
         return result(Host,"/index",modelAndView);
     }
 
@@ -75,17 +77,17 @@ public class IndexController {
         modelAndView.setViewName("/content");
         return modelAndView;
     }
-    @RequestMapping("/table")
-    public ModelAndView table(@RequestHeader("Host") String Host){
-        List<Article> articleList = articleService.getArticleListByType(1);
-        List<Module> modules = moduleService.getModuleList();
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("modules",modules);
-        modelAndView.addObject("articles", articleList);
-        modelAndView.addObject("host",Host);
-        modelAndView.setViewName("/table");
-        return modelAndView;
-    }
+//    @RequestMapping("/table")
+//    public ModelAndView table(@RequestHeader("Host") String Host){
+//        List<Article> articleList = articleService.getArticleListByType(1);
+//        List<Module> modules = moduleService.getModuleList();
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("modules",modules);
+//        modelAndView.addObject("articles", articleList);
+//        modelAndView.addObject("host",Host);
+//        modelAndView.setViewName("/table");
+//        return modelAndView;
+//    }
 
     @RequestMapping("/edit")
     public ModelAndView edit(@RequestHeader("Host") String Host){

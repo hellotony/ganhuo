@@ -48,7 +48,7 @@
     <script type="text/javascript">
         var editor = new wangEditor('div1');
         editor.config.pasteFilter = false;
-        editor.config.uploadImgUrl = "http://localhost:8080/upload/test";
+        editor.config.uploadImgUrl = "http://${host}/upload/test";
         editor.config.uploadImgFileName = "myFileName";
         editor.create();
 
@@ -59,7 +59,7 @@
 //            插入文章
             $.ajax({
                 type: "post",
-                url: "http://localhost:8080/article/add",
+                url: "http://${host}/article/add",
                 async:false,
                 data: { "content": content },
                 success: function(data) {
@@ -82,7 +82,7 @@
             var article = "";
             $.ajax({
                 type: "get",
-                url: "http://localhost:8080/article/get",
+                url: "http://${host}/article/get",
                 async:false,
                 data: { "id": id},
                 success: function(data) {

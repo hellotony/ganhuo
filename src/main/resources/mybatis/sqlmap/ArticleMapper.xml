@@ -102,5 +102,14 @@
 		order by read_times desc;
 	</select>
 
+	<update id="updateCommentNum" parameterType="Integer">
+		UPDATE article set commend = commend+1 where id = #{id};
+	</update>
+	
+	<select id="getLastArticle" resultMap="ArticleMap">
+		select <include refid="selectAllColumns"/>
+		from article order by add_time desc limit 1;
+	</select>
+
 
 </mapper>

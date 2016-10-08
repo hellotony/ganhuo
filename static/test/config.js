@@ -3,6 +3,6 @@ module.exports = {
     'SECRET_KEY': '3gitOL1vKTA1ozChmwGV_U_Qa9GcPvJUAiuYTViI',
     'Bucket_Name': 'ganhuo',
     'Port': 19110,
-    'Uptoken_Url': 'http://localhost:8080/uploadToken',
+    'Uptoken_Url': 'http://${host}/uploadToken',
     'Domain': 'http://qiniu-plupload.qiniudn.com/'
 };

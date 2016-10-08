@@ -1,8 +1,10 @@
 package com.ganhuo.controller;
 
 import com.ganhuo.model.domain.Article;
+import com.ganhuo.model.domain.Comment;
 import com.ganhuo.model.domain.Module;
 import com.ganhuo.service.client.ArticleService;
+import com.ganhuo.service.client.CommentService;
 import com.ganhuo.service.client.ModuleService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,6 +24,9 @@ public class ArticleController {
 
     @Resource
     private ModuleService moduleService;
+
+    @Resource
+    private CommentService commentService;
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String add(String content,String title,int type,String topicImageUrl,String articleDesc){
@@ -49,12 +54,14 @@ public class ArticleController {
         ModelAndView m = new ModelAndView();
         List<Module> modules = moduleService.getModuleList();
         List<Article> recentArticles = articleService.getRecentArticles();
+        List<Comment> comments = commentService.getCommentsByArticleId(articleId);
         Article article= articleService.getArticleById(articleId);
         article.setReadTimes(article.getReadTimes()+1);
         articleService.updateReadTime(article);
         m.addObject("recentArticles",recentArticles);
         m.addObject("modules",modules);
         m.addObject("article",article);
+        m.addObject("comments",comments);
         m.addObject("host",Host);
         m.setViewName("/article");
         return m;
@@ -91,5 +98,16 @@ public class ArticleController {
         modelAndView.addObject("host",Host);
         modelAndView.setViewName("/editShow");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/addComment",method = RequestMethod.POST)
+    public boolean addComment(Integer articleId,String author,String content){
+        Integer id = commentService.insert(articleId,author,content);
+        articleService.updateCommentTimes(articleId);
+        if(id!=0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

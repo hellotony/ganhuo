@@ -85,7 +85,7 @@
             var uploaderTopic = Qiniu.uploader({
                 runtimes: 'html5,flash,html4',    //上传模式,依次退化
                 browse_button: 'pickfiles',       //上传选择的点选按钮，**必需**
-                uptoken_url: 'http://localhost:8080/uploadToken',
+                uptoken_url: 'http://${host}/uploadToken',
                 unique_names: true,
                 domain: 'http://ocgkatm4e.bkt.clouddn.com/',
                 container: 'container',           //上传区域DOM ID，默认是browser_button的父元素，
@@ -140,7 +140,7 @@
                 var uploader = Qiniu.uploader({
                     runtimes: 'html5,flash,html4',    //上传模式,依次退化
                     browse_button: btnId,       //上传选择的点选按钮，**必需**
-                    uptoken_url: 'http://localhost:8080/uploadToken',
+                    uptoken_url: 'http://${host}/uploadToken',
                     //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
                     // uptoken : '<Your upload token>',
                     //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
@@ -242,7 +242,7 @@
 //            插入文章
                 $.ajax({
                     type: "post",
-                    url: "http://localhost:8080/article/add",
+                    url: "http://${host}/article/add",
                     async:false,
                     data: { "content": content,"title":title,"type":type,"topicImageUrl":topicImageUrl,"articleDesc":articleDesc},
                     success: function(data) {

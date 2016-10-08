@@ -5,6 +5,7 @@ body{
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
 }
 
 
@@ -100,7 +101,12 @@ body{
 .b-body-title {
         margin: 7px 0px;
 }
-
+.table-title{
+    height: 40px;
+}
+.description{
+    height: 60px;
+}
 .b-body-state {
     margin-left: 5px;
 }

@@ -1,72 +1,72 @@
 package com.ganhuo.service.client;
 
-import com.ganhuo.model.domain.Article;
+import com.ganhuo.model.domain.Comment;
 
 import java.util.List;
 
 /**
  * Created by sunzhiqiang on 2016/8/26.
  */
-public interface ArticleService {
+public interface CommentService {
     /**
      * 插入文章
      * @param content
      * @param topicImageUrl
-     *@param articleDesc @return
+     *@param  @return
      */
-    Integer add(String content, String title, int type, String topicImageUrl, String articleDesc);
+    Integer add(String content, String title, int type, String topicImageUrl, String commentDesc);
 
     /**
      * 通过 id 获取文章
      * @param id
      * @return
      */
-    Article getArticleById(Long id);
+    Comment getCommentById(Long id);
 
     /**
      * 获取第一篇文章
      * @return
      */
-    Article getFirstArticle();
+    Comment getFirstComment();
 
     /**
      * 通过文章类型 获取对应的文章
      * @param typeId
      * @return
      */
-    List<Article> getArticleListByType(Integer typeId);
+    List<Comment> getCommentListByType(Integer typeId);
 
     /**
      * 获取最新的文章
      * @return
      */
-    List<Article> getRecentArticles();
+    List<Comment> getRecentComments();
 
     /**
      * 增加阅读次数
-     * @param article
+     * @param Comment
      */
-    void updateReadTime(Article article);
+    void updateReadTime(Comment Comment);
 
     /**
      * 获取最热门的 几篇文章
      * @param i
      * @return
      */
-    List<Article> getMostHotArticle(int i);
+    List<Comment> getMostHotComment(int i);
 
     /**
      * 通过 module 获取 文章列表
      * @param param
      * @return
      */
-    List<Article> getArticleByModule(List<Integer> param);
+    List<Comment> getCommentByModule(List<Integer> param);
 
     /**
      * 获取所有的 文章
      * @return
      */
-    List<Article> getAllArticle();
+    List<Comment> getAllComment();
 
     /**
      * 更新文章
@@ -75,20 +75,26 @@ public interface ArticleService {
      * @param content
      * @param title
      * @param topicImageUrl
-     * @param articleDesc
+     * @param
      * @return
      */
-    Integer update(Integer id, String content, String title, String topicImageUrl, String articleDesc);
+    Integer update(Integer id, String content, String title, String topicImageUrl, String commentDesc);
+
 
     /**
-     * 评论数量+1
+     * 插入一条 评论
      * @param articleId
-     */
-    void updateCommentTimes(Integer articleId);
-
-    /**
-     * 获取最新创建的文章
+     * @param username
+     * @param content
      * @return
      */
-    Article getLastArticle();
+    Integer insert(Integer articleId, String username, String content);
+
+
+    /**
+     * 通过 文章id 获取评论
+     * @param articleId
+     * @return
+     */
+    List<Comment> getCommentsByArticleId(Long articleId);
 }

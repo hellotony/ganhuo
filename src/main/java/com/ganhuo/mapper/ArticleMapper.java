@@ -27,4 +27,8 @@ public interface ArticleMapper {
     List<Article> getArticleByModule(List<Integer> param);
 
     List<Article> getAllArticle();
+
+    void updateCommentNum(@Param("id") Integer id);
+
+    Article getLastArticle();
 }

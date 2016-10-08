@@ -9,7 +9,7 @@
     
 
 
-<body onload="ready()">
+<body>
 
     <#--头部内容-->
     <#include "common-header.ftl"/>
@@ -25,7 +25,7 @@
                         <ul class="topic-preview" id="topic-preview" style="width: 600%; margin-left: 0%;">
                            <li preview="preview" class="preview">
                                <a target="_blank" href="">
-                                   <img src="http://ocgkatm4e.bkt.clouddn.com/o_1atb6g42ju2l1r5uo0r1klrtj07.jpg" alt="LOVELESS" style="width: 620px;height:300px">
+                                   <img src="${art.imgUrl!}" alt="LOVELESS" style="width: 620px;height:300px">
                                </a>
                            </li>
                         </ul>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="bottom-wrapper">
                         <div class="s-bottom">
-                            <a href="index.ftl">今日推荐：天价背后对应的是什么？</a>
+                            <a href="index.ftl">${art.title!}</a>
                         </div>
                     </div>
                 </div>
@@ -42,18 +42,20 @@
                 <div  class="overview-right-ul">
                     <ul>
                         <#list hotArticles as l>
-                        <#assign title=l.title>
-                        <li>
-                            <h2>
-                                <a href="http://${host}/article/${l.id}" title="${l.title}">
-                                    <#if title?length gt 19>
-                                        <span class="small-index">${title?substring(0,19)}...</span>
-                                    <#else>
-                                        <span class="small-index">${title}</span>
-                                    </#if>
-                                </a>
-                            </h2>
-                        </li>
+                            <#if l_index lt 9>
+                                <#assign title=l.title>
+                                <li>
+                                    <h2>
+                                        <a href="http://${host}/article/${l.id}" title="${l.title}">
+                                            <#if title?length gt 19>
+                                                <span class="small-index">${title?substring(0,19)}...</span>
+                                            <#else>
+                                                <span class="small-index">${title}</span>
+                                            </#if>
+                                        </a>
+                                    </h2>
+                                </li>
+                            </#if>
                         </#list>
 
                     </ul>
@@ -73,7 +75,7 @@
                             </a>
                         </span>
                         <span class="b-head-s">
-                        当前共有<em>342</em> 部热门影评
+                        <#--当前共有<em>342</em> 部热门影评-->
                         </span>
                         </div>
                         <div class="right"></div>
@@ -93,7 +95,7 @@
                                                     by<span class="au">&nbsp;蜗牛快跑</span>
                                                 </div>
                                                 <div class="title">
-                                                    <h3><a href="http://${host}/article/${ar.id}" class="ti" title="Travel Guide: Walking tour of Massachusetts">${ar.title!}</a></h3>
+                                                    <div class="table-title"><h3><a href="http://${host}/article/${ar.id}" class="ti" title="Travel Guide: Walking tour of Massachusetts">${ar.title!}</a></h3></div>
                                                     <div class="description">
                                                         <span>${ar.description!}</span>
                                                     </div>

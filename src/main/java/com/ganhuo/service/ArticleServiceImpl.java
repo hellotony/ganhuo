@@ -89,10 +89,20 @@ public class ArticleServiceImpl implements ArticleService {
         a.setContent(content);
         a.setImgUrl(topicImageUrl);
         a.setDescription(articleDesc);
-
         articleMapper.updateArticle(a);
 
         return 1;
+    }
+
+    @Override
+    public void updateCommentTimes(Integer articleId) {
+        articleMapper.updateCommentNum(articleId);
+
+    }
+
+    @Override
+    public Article getLastArticle() {
+        return articleMapper.getLastArticle();
     }
 
 
