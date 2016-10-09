@@ -10,7 +10,7 @@
         <div class="banner-content">
             <div class="banner-left">
                 <ul>
-                    <li><a href="http://${host}/">主站</a></li>
+                    <li><a href="http://${host}/" title="干货网首页">首页</a></li>
                     <#--<li><a class="link" href="http://${host}/">其他</a></li>-->
                 </ul>
             </div>

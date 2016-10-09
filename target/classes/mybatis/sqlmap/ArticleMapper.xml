@@ -69,7 +69,8 @@
 
 	<select id="getAllArticle" resultMap="ArticleMap">
 		SELECT <include refid="selectAllColumns"/>
-		from article where del_flag = 0;
+		from article where del_flag = 0
+		order by add_time desc;
 	</select>
 
 	<select id="getFirstArticle" resultMap="ArticleMap">
@@ -100,6 +101,15 @@
 		</foreach>
 		and del_flag = 0
 		order by read_times desc;
+	</select>
+
+	<update id="updateCommentNum" parameterType="Integer">
+		UPDATE article set commend = commend+1 where id = #{id};
+	</update>
+	
+	<select id="getLastArticle" resultMap="ArticleMap">
+		select <include refid="selectAllColumns"/>
+		from article order by add_time desc limit 1;
 	</select>
 
 

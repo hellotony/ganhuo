@@ -1,16 +1,15 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>干货网</title>
+    <meta name="description" content="干货网是面向整个互联网的内容整合分享网站，汇聚了互联网最精华的内容">
+    <meta name="keywords" content="干货，电影，励志，趣闻，福利">
     <link rel="stylesheet" type="text/css" href="/css/common.css" />  
     <link rel="stylesheet" type="text/css" href="/css/main.css" />  
     <link rel="stylesheet" type="text/css" href="/css/item.css" />
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />
 </head>
-    
-
 
 <body>
-
     <#--头部内容-->
     <#include "common-header.ftl"/>
     <#--头部内容-->
@@ -24,16 +23,15 @@
                     <div class="topic-preview-list-wrapper">
                         <ul class="topic-preview" id="topic-preview" style="width: 600%; margin-left: 0%;">
                            <li preview="preview" class="preview">
-                               <a target="_blank" href="">
+                               <a target="_blank" href="http://${host}/article/${art.id!}" title="${art.title!}">
                                    <img src="${art.imgUrl!}" alt="LOVELESS" style="width: 620px;height:300px">
                                </a>
                            </li>
                         </ul>
-                    
                     </div>
                     <div class="bottom-wrapper">
                         <div class="s-bottom">
-                            <a href="index.ftl">${art.title!}</a>
+                            <a href="http://${host}/article/${art.id!}" title="${art.title!}">${art.title!}</a>
                         </div>
                     </div>
                 </div>
@@ -57,11 +55,9 @@
                                 </li>
                             </#if>
                         </#list>
-
                     </ul>
                 </div>
             </div>
-        
         </div>
         <#list modules as l>
             <div class="g-section-body">
@@ -70,7 +66,7 @@
                         <div class="left">
                             <span class="b-head-i"></span>
                         <span class="b-head-t">
-                            <a href="http://${host}/module/${l.value}" target="_blank">
+                            <a href="http://${host}/module/${l.value}" target="_blank" title="${l.name!}">
                                 <h2>${l.name!}</h2>
                             </a>
                         </span>
@@ -79,7 +75,6 @@
                         </span>
                         </div>
                         <div class="right"></div>
-
                     </div>
                     <div class="b-body">
                         <#list l.articles as ar>
@@ -95,7 +90,7 @@
                                                     by<span class="au">&nbsp;蜗牛快跑</span>
                                                 </div>
                                                 <div class="title">
-                                                    <div class="table-title"><h3><a href="http://${host}/article/${ar.id}" class="ti" title="Travel Guide: Walking tour of Massachusetts">${ar.title!}</a></h3></div>
+                                                    <div class="table-title"><h3><a href="http://${host}/article/${ar.id}" class="ti" title="${ar.title!}">${ar.title!}</a></h3></div>
                                                     <div class="description">
                                                         <span>${ar.description!}</span>
                                                     </div>
@@ -108,29 +103,6 @@
                             </li>
                         </#list>
 
-                        <#--<li>-->
-                            <#--<div>-->
-                                <#--<div class="item">-->
-                                    <#--<div>-->
-                                        <#--<div class="image">-->
-                                            <#--<a class="img" href="/" title="监控"><img src="http://nostheme.com/selasih/wp-content/uploads/2015/09/girls-739071_1920-360x206.jpg" alt=""></a>-->
-                                        <#--</div>-->
-                                        <#--<div class="word">-->
-                                            <#--<div class="author">-->
-                                                <#--by<span class="au">&nbsp;蜗牛快跑</span>-->
-                                            <#--</div>-->
-                                            <#--<div class="title">-->
-                                                <#--<h3><a href class="ti" title="Travel Guide: Walking tour of Massachusetts">【榜单】 BBC评选21世纪最伟大电影Top100</a></h3>-->
-                                                <#--<div class="description">-->
-                                                    <#--<span>似乎电影明星不再神秘与遥远，拍电影也没有那么难，但事实上无论在任何年代，拍出一部好电影。</span>-->
-                                                <#--</div>-->
-                                            <#--</div>-->
-                                        <#--</div>-->
-                                    <#--</div>-->
-                                <#--</div>-->
-                                <#--<div style="clear:both"></div>-->
-                            <#--</div>-->
-                        <#--</li>-->
                         <div style="clear:both"></div>
 
                     </div>

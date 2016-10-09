@@ -3,10 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/publish.css" />
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />
-    <!--引入wangEditor.css-->
-<#--<link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css">-->
-    <link rel="stylesheet" type="text/css" href="/test/wangEditor/css/wangEditor.css">
+    <link rel="stylesheet" type="text/css" href="/test/wangEditor.css">
 </head>
 <style>
     div#t {

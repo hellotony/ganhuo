@@ -1,10 +1,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>${modules.name!}</title>
+    <meta name="description" content="${modules.name!}">
+    <meta name="keywords" content="${modules.name!}">
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/content.css" />
-<!--    <link rel="stylesheet" type="text/css" href="/css/main.css" />  -->
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />
 </head>
     
 <body>
@@ -20,9 +21,9 @@
         <div class="article-list">
             <#list articles as l>
                 <div class="article">
-                    <a href="http://${host}/article/${l.id!}"></a>
+                    <a href="http://${host}/article/${l.id!}" title="${l.title!}"></a>
                     <h3>
-                        <a class="article-title" href="http://${host}/article/${l.id!}" target="_blank" data-gaevent="scientific_title:v1.1.1.1:scientific">${l.title!}</a>
+                        <a class="article-title" href="http://${host}/article/${l.id!}" target="_blank" title="${l.title!}" data-gaevent="scientific_title:v1.1.1.1:scientific">${l.title!}</a>
                     </h3>
                     <div class="article-info">
                         <a href="http://${host}/article/${l.id!}"  class="article-author" style="color: #46b6b6;">小强</a>

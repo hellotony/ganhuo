@@ -18,9 +18,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAutoConfiguration//启用自动配置
 public class Start extends SpringBootServletInitializer {
 
-
-
-
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(Start.class);

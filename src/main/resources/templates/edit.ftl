@@ -3,8 +3,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/table.css" />
-<!--    <link rel="stylesheet" type="text/css" href="/css/main.css" />  -->
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />
 </head>
     
 <body>
@@ -19,7 +17,6 @@
     <div class="content">
         <div class="table">
             <div class="table-left">
-
                 <#list articles as l>
                     <div class="table-item">
                         <div class="item-image">
@@ -38,20 +35,11 @@
                         </div>
                     </div>
                 </#list>
-
-
             </div>
             <div class="table-right"></div>
             <div style="clear:both"></div>
         </div>
-
-
-
-
-
     </div>
-
-
 
     <!--    尾部内容-->
     <#include "common-footer.ftl"/>

@@ -34,7 +34,6 @@ public class ArticleController {
         Integer id = articleService.add(content,title,type,topicImageUrl,articleDesc);
         //更新模块文章数量
         moduleService.updateModuleCount(type);
-
         return ""+id;
     }
 
@@ -42,10 +41,8 @@ public class ArticleController {
     public String update(Integer id,String content,String title,String topicImageUrl,String articleDesc){
         //添加文章
         articleService.update(id,content,title,topicImageUrl,articleDesc);
-
         //更新模块文章数量
 //        moduleService.updateModuleCount(type);
-
         return ""+id;
     }
 

@@ -3,10 +3,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/publish.css" />
-    <#--<link rel="stylesheet" type="text/css" href="/css/edit.css" />-->
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />
-    <!--引入wangEditor.css-->
-    <#--<link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css">-->
     <link rel="stylesheet" type="text/css" href="/test/wangEditor/css/wangEditor.css">
 </head>
 <style>
@@ -50,7 +46,7 @@
                 </a>
             </div><br><br>
             <div>
-                <img src="" border="1" id="topicImage" style="border-color: #dcdfe5">
+                <img src="${article.imgUrl!}" border="1" id="topicImage" style="border-color: #dcdfe5">
             </div><br><br><br>
 
             <div style="width: 805px;">
@@ -78,7 +74,7 @@
                     window.console && console.log(title, info);
                 }
 
-                var topicImageUrl = "";
+                var topicImageUrl = $("#topicImage").attr("src");
                 var articleDesc="";
 
                 //上传主题图片

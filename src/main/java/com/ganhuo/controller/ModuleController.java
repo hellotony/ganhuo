@@ -30,7 +30,14 @@ public class ModuleController {
     public ModelAndView module(@PathVariable("typeId") Integer typeId,@RequestHeader("Host") String Host) {
         List<Article> articleList = articleService.getArticleListByType(typeId);
         List<Module> modules = moduleService.getModuleList();
+        Module module = new Module();
+        for(Module m:modules){
+            if(m.getId() == typeId){
+                module = m;
+            }
+        }
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("module",module);
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("articles", articleList);
         modelAndView.addObject("host",Host);

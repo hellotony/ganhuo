@@ -3,8 +3,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/article.css" />
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />
-
 </head>
 
 <body>
@@ -14,11 +12,10 @@
     <#--头部内容-->
     <#--<#include "banner.ftl"/>-->
 
-   
     <!--   栏目内容 -->
     <div class="content">
-        
-        <div class="a-left shadow">
+
+        <div class="a-left">
             <div class="article-content" >
                 <div class="content-title">
                     <h1>${article.title!}</h1>
@@ -53,7 +50,6 @@
             <div class="article-user">
                 <h2 class="user-title">最新文章</h2>
                 <ul class="user-inner">
-
                     <#list recentArticles as l>
                     <li class="clear">
                         <#if l.title?length gt 10>
@@ -61,14 +57,7 @@
                         <#else >
                             <a href="http://${host}/article/${l.id}" class="clear-title">${l.title}</a>
                         </#if>
-
                         <p class="article-topic">
-                            <#--<#if l.description?length gt 10>-->
-                                <#--<a href="http://${host}/article/${l.id}" class="clear-topic">${l.description?substring(0,10)}</a>-->
-                            <#--<#else >-->
-                                <#--<a href="http://${host}/article/${l.id}" class="clear-topic">${l.description}</a>-->
-                            <#--</#if>-->
-
                             <span class="user-inner-right">
                                 阅读&nbsp;<em>${l.readTimes}</em>&nbsp;&nbsp;
                                 评论&nbsp;<em>${l.commend}</em>
@@ -76,18 +65,13 @@
                         </p>
                     </li>
                     </#list>
-                    
-
-                   
                 </ul>
             </div>
             <div class="article-best"></div>
             <div class="article-new"></div>
-        
         </div>
         <div style="clear:both"></div>
     </div>
-
 
     <!--    尾部内容-->
     <#include "common-footer.ftl"/>

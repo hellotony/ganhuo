@@ -3,7 +3,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/publish.css" />
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />
     <link rel="stylesheet" type="text/css" href="/test/wangEditor/css/wangEditor.css">
 </head>
 <style>

@@ -1,20 +1,21 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>${article.title!}</title>
+    <meta name="description" content="${article.description!}">
+    <meta name="keywords" content="${article.title!}">
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/article.css" />  
-    <#--<link rel="stylesheet" type="text/css" href="http://code.jquery.com/jquery-1.8.0.min.js" />-->
     <script type="text/javascript" src="/js/lib/jquery-1.10.2.min.js"></script>
-
 </head>
 
 <body>
     <#include "common-header.ftl"/>
-    <#--<#include "banner.ftl"/>-->
+    <#include "banner.ftl"/>
 
     <!--   栏目内容 -->
     <div class="content">
-        <div class="a-left shadow">
+        <div class="a-left">
             <div class="article-content" >
                 <input type="hidden" id="articleId" value="${article.id}">
                 <div class="content-title">
@@ -32,7 +33,6 @@
                 <div class="content-inner">
                     ${article.content!}
                 </div>
-               
             </div>
             <div style="clear:both"></div>
             <div class="article-recommend">
@@ -46,7 +46,6 @@
                         </div>
                     </div>
                 </#list>
-
             </div>
             <div style="clear:both"></div>
             <div class="comment-block sls-cont-pad  clearfix">
@@ -73,22 +72,14 @@
             <div class="article-user">
                 <h2 class="user-title">最新文章</h2>
                 <ul class="user-inner">
-
                     <#list recentArticles as l>
                     <li class="clear">
                         <#if l.title?length gt 10>
-                            <a href="http://${host}/article/${l.id}" class="clear-title">${l.title?substring(0,10)}</a>
+                            <a href="http://${host}/article/${l.id}" class="clear-title" title="${l.title!}">${l.title?substring(0,10)}</a>
                         <#else >
-                            <a href="http://${host}/article/${l.id}" class="clear-title">${l.title}</a>
+                            <a href="http://${host}/article/${l.id}" class="clear-title" title="${l.title}">${l.title}</a>
                         </#if>
-
                         <p class="article-topic">
-                            <#--<#if l.description?length gt 10>-->
-                                <#--<a href="http://${host}/article/${l.id}" class="clear-topic">${l.description?substring(0,10)}</a>-->
-                            <#--<#else >-->
-                                <#--<a href="http://${host}/article/${l.id}" class="clear-topic">${l.description}</a>-->
-                            <#--</#if>-->
-
                             <span class="user-inner-right">
                                 阅读&nbsp;<em>${l.readTimes}</em>&nbsp;&nbsp;
                                 评论&nbsp;<em>${l.commend}</em>
@@ -100,11 +91,9 @@
             </div>
             <div class="article-best"></div>
             <div class="article-new"></div>
-        
         </div>
         <div style="clear:both"></div>
     </div>
-
 
     <!--    尾部内容-->
     <#include "common-footer.ftl"/>
@@ -119,7 +108,6 @@
             if(author == null || content == null){
                 alert("名字和内容都不能为空");
             }
-
             //插入评论
             $.ajax({
                 type: "post",
@@ -128,7 +116,7 @@
                 data: { "content": content,"author":author,"articleId":articleId},
                 success: function(data) {
                     if (data) {
-                        alert("插入成功！");
+                        alert("评论成功！");
                         var ht = "<div class='recommend-item'><div class='recommend-name'><span class='name-backyan'>"+author+
                         "</span>"+date+
                          "</div><div class='recommend-content'>"+content+"</div></div>";
@@ -145,7 +133,6 @@
                 }
             });
         });
-
     </script>
 </body>
 </html>

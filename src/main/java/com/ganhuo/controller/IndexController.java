@@ -147,9 +147,6 @@ public class IndexController {
         return tocken;
     }
 
-
-
-
     private ModelAndView result(String Host,String name,ModelAndView modelAndView){
         modelAndView.addObject("host",Host);
         modelAndView.setViewName(name);

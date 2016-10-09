@@ -69,7 +69,8 @@
 
 	<select id="getAllArticle" resultMap="ArticleMap">
 		SELECT <include refid="selectAllColumns"/>
-		from article where del_flag = 0;
+		from article where del_flag = 0
+		order by add_time desc;
 	</select>
 
 	<select id="getFirstArticle" resultMap="ArticleMap">

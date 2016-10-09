@@ -27,22 +27,6 @@ public class DemoController {
 		return "id is"+id;
 	}
 
-	@RequestMapping("/demoUpload")
-	public ModelAndView demoUpload(){
-		return new ModelAndView("/demoUpload");
-	}
-
-	@RequestMapping("/demoUpload1")
-	public String demoUpload1(){
-		return "/demoUpload1";
-	}
-
-
-	@RequestMapping("/demoFtl")
-	public ModelAndView demeFtl(){
-		return new ModelAndView("/demoFtl");
-	}
-
 	@RequestMapping("/demoSql/{id}")
 	public String demoSql(@PathVariable("id") Long id){
 		AgentUser agentUser = agentUserService.getById(id);
@@ -51,10 +35,6 @@ public class DemoController {
 
 	}
 
-	@RequestMapping("/wangEditor")
-	public ModelAndView wangEditor(){
-		return  new ModelAndView("/wangEditor");
-	}
 
 	@RequestMapping("/index")
 	public ModelAndView index(){
@@ -74,26 +54,6 @@ public class DemoController {
 	@RequestMapping("/login")
 	public ModelAndView login(){
 		return new ModelAndView("/login");
-	}
-
-	@RequestMapping("/publish")
-	public ModelAndView publish(){
-		return new ModelAndView("/publish");
-	}
-
-	@RequestMapping("/publish1")
-	public ModelAndView publish1(){
-		return new ModelAndView("/publish1");
-	}
-
-	@RequestMapping("/qiniuIndex")
-	public ModelAndView qiniuIndex(){
-		return new ModelAndView("/qiniuIndex");
-	}
-
-	@RequestMapping("/qiniuMultiple")
-	public ModelAndView qiniuMultiple(){
-		return new ModelAndView("/qiniuMultiple");
 	}
 
 	/**
