@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/publish.css" />
     <link rel="stylesheet" type="text/css" href="/test/wangEditor.css">
+    <link rel='icon' href='img/icon.ico ' type=‘image/x-ico’ />
 </head>
 <style>
     div#t {

@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/publish.css" />
     <link rel="stylesheet" type="text/css" href="/test/wangEditor/css/wangEditor.css">
+    <link rel='icon' href='img/icon.ico ' type=‘image/x-ico’ />
 </head>
 <style>
     div#t {
@@ -232,7 +233,6 @@
                     var id = $("input[name='id']").val();
 //                    var type = $(".type").val();
                     var articleDesc = $("#articleDesc").val();
-
                     if(content=="" || title==""){
                         return;
                     }
@@ -252,7 +252,6 @@
                     });
                 });
             </script>
-        
         </div>
     </div>
 

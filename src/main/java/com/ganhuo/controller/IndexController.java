@@ -52,7 +52,6 @@ public class IndexController {
         Article art = articleService.getLastArticle();
         for(Module m:modules){
             List<Article> ar = new ArrayList<>();
-            System.out.println(m.getId());
             for(Article a:articles){
                 if(a.getType() == m.getId()){
                     ar.add(a);

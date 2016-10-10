@@ -4,6 +4,7 @@
     <title>干货网</title>
     <meta name="description" content="干货网是面向整个互联网的内容整合分享网站，汇聚了互联网最精华的内容">
     <meta name="keywords" content="干货，电影，励志，趣闻，福利">
+    <link rel='icon' href='img/icon.ico ' type=‘image/x-ico’ />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />  
     <link rel="stylesheet" type="text/css" href="/css/main.css" />  
     <link rel="stylesheet" type="text/css" href="/css/item.css" />

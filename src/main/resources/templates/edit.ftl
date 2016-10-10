@@ -3,6 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/table.css" />
+    <link rel='icon' href='img/icon.ico ' type=‘image/x-ico’ />
 </head>
     
 <body>
