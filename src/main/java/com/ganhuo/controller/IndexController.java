@@ -44,22 +44,17 @@ public class IndexController {
     private ModelAndView returnIndex(String Host){
         ModelAndView modelAndView = new ModelAndView();
         List<Module> modules = moduleService.getModuleList();
-        List<Integer> types = new ArrayList<>();
-        for(Module m:modules){
-            types.add(m.getId());
-        }
-        List<Article> articles = articleService.getArticleByModule(types);
+        List<Article> articles = articleService.getArticleGroup();
         Article art = articleService.getLastArticle();
+        List<Article> hotArticles = articleService.getMostHotArticle(9);
         for(Module m:modules){
-            List<Article> ar = new ArrayList<>();
             for(Article a:articles){
                 if(a.getType() == m.getId()){
-                    ar.add(a);
+                    m.setArticle(a);
                 }
             }
-            m.setArticles(ar);
         }
-        modelAndView.addObject("hotArticles",articles);
+        modelAndView.addObject("hotArticles",hotArticles);
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("art",art);
         return result(Host,"/index",modelAndView);

@@ -91,4 +91,10 @@ public interface ArticleService {
      * @return
      */
     Article getLastArticle();
+
+    /**
+     * 获取每个类别的  文章一篇
+     * @return
+     */
+    List<Article> getArticleGroup();
 }

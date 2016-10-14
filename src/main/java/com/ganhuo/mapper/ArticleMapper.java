@@ -31,4 +31,6 @@ public interface ArticleMapper {
     void updateCommentNum(@Param("id") Integer id);
 
     Article getLastArticle();
+
+    List<Article> getArticleGroup();
 }

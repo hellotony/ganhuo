@@ -105,5 +105,10 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.getLastArticle();
     }
 
+    @Override
+    public List<Article> getArticleGroup() {
+        return articleMapper.getArticleGroup();
+    }
+
 
 }

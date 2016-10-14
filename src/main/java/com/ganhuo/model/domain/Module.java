@@ -27,7 +27,7 @@ public class Module extends BaseEntity {
     private Integer delFlag;
 
 
-    private List<Article> articles;
+    private Article article;
 
 
     public String getName() {
@@ -62,11 +62,11 @@ public class Module extends BaseEntity {
         this.count = count;
     }
 
-    public List<Article> getArticles() {
-        return articles;
+    public Article getArticle() {
+        return article;
     }
 
-    public void setArticles(List<Article> articles) {
-        this.articles = articles;
+    public void setArticle(Article article) {
+        this.article = article;
     }
 }
