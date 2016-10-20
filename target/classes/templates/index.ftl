@@ -4,7 +4,7 @@
     <title>干货网</title>
     <meta name="description" content="干货网是面向整个互联网的内容整合分享网站，汇聚了互联网最精华的内容">
     <meta name="keywords" content="干货，电影，励志，趣闻，福利">
-    <link rel='icon' href='img/icon.ico ' type=‘image/x-ico’ />
+    <link rel='icon' href="http://oekj1dj02.bkt.clouddn.com/icon.ico" type=‘image/x-ico’ />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />  
     <link rel="stylesheet" type="text/css" href="/css/main.css" />  
     <link rel="stylesheet" type="text/css" href="/css/item.css" />
@@ -60,64 +60,62 @@
                 </div>
             </div>
         </div>
-        <#list modules as l>
-            <div class="g-section-body">
-                <div class="g-left">
-                    <div class="b-head">
-                        <div class="left">
-                            <span class="b-head-i"></span>
-                        <span class="b-head-t">
-                            <a href="http://${host}/module/${l.value}" target="_blank" title="${l.name!}">
-                                <h2>${l.name!}</h2>
-                            </a>
-                        </span>
-                        <span class="b-head-s">
-                        <#--当前共有<em>342</em> 部热门影评-->
-                        </span>
-                        </div>
-                        <div class="right"></div>
-                    </div>
-                    <div class="b-body">
-                        <#list l.articles as ar>
-                            <li>
-                                <div>
-                                    <div class="item">
+        <div class="content-body">
+            <div class="body-left">
+                    <div class="g-section-body">
+                        <div class="g-left">
+                            <#--<div class="b-head">-->
+                                <#--<div class="left">-->
+                                    <#--<span class="b-head-i"></span>-->
+                            <#--<span class="b-head-t">-->
+                                <#--<a href="http://${host}/module/${l.value}" target="_blank" title="${l.name!}">-->
+                                    <#--<h2>${l.name!}</h2>-->
+                                <#--</a>-->
+                            <#--</span>-->
+                            <#--<span class="b-head-s">-->
+                            <#--&lt;#&ndash;当前共有<em>342</em> 部热门影评&ndash;&gt;-->
+                            <#--</span>-->
+                                <#--</div>-->
+                                <#--<div class="right"></div>-->
+                            <#--</div>-->
+                            <div class="b-body">
+                                <#list modules as l>
+                                    <li>
                                         <div>
-                                            <div class="image">
-                                                <a class="img" href="http://${host}/article/${ar.id}" title="监控"><img src="${ar.imgUrl!}" alt=""></a>
-                                            </div>
-                                            <div class="word">
-                                                <div class="author">
-                                                    by<span class="au">&nbsp;蜗牛快跑</span>
-                                                </div>
-                                                <div class="title">
-                                                    <div class="table-title"><h3><a href="http://${host}/article/${ar.id}" class="ti" title="${ar.title!}">${ar.title!}</a></h3></div>
-                                                    <div class="description">
-                                                        <span>${ar.description!}</span>
+                                            <div class="item">
+                                                <div>
+                                                    <div class="image">
+                                                        <a class="img" href="http://${host}/article/${l.article.id}" title="监控"><img src="${l.article.imgUrl!}" alt=""></a>
+                                                        <div class="img-cat">
+                                                            <div class="cat">
+                                                                <a href="http://${host}/module/${l.value}" title="${l.name!}">${l.name!}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="word">
+                                                        <div class="author">
+                                                            by<span class="au">&nbsp;蜗牛快跑</span>
+                                                        </div>
+                                                        <div class="title">
+                                                            <div class="table-title"><h3><a href="http://${host}/article/${l.article.id}" class="ti" title="${l.article.title!}">${l.article.title!}</a></h3></div>
+                                                            <div class="description">
+                                                                <span>${l.article.description!}</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div style="clear:both"></div>
                                         </div>
-                                    </div>
-                                    <div style="clear:both"></div>
-                                </div>
-                            </li>
-                        </#list>
-
+                                    </li>
+                                </#list>
+                                <div style="clear:both"></div>
+                            </div>
+                        </div>
                         <div style="clear:both"></div>
-
                     </div>
-                </div>
-                <div class="g-right">
-                    <div class="g-right-body">
-                        <a class="" href="index.ftl">
-                            <img src="http://i0.hdslb.com/bfs/live/ee4cc7ff3eae8d007fe791d3d64e7366439038d1.jpg@.webp">
-                        </a>
-                    </div>
-                </div>
-                <div style="clear:both"></div>
             </div>
-        </#list>
+        </div>
     </div>
        
     <!--    尾部内容-->

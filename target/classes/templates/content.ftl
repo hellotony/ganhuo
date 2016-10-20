@@ -4,6 +4,7 @@
     <title>${modules.name!}</title>
     <meta name="description" content="${modules.name!}">
     <meta name="keywords" content="${modules.name!}">
+    <link rel='icon' href="http://oekj1dj02.bkt.clouddn.com/icon.ico" type=‘image/x-ico’ />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/content.css" />
 </head>

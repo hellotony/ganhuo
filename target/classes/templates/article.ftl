@@ -4,7 +4,7 @@
     <title>${article.title!}</title>
     <meta name="description" content="${article.description!}">
     <meta name="keywords" content="${article.title!}">
-    <link rel='icon' href='img/icon.ico' type=‘image/x-ico’ />
+    <link rel='icon' href="http://oekj1dj02.bkt.clouddn.com/icon.ico" type=‘image/x-ico’ />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/article.css" />  
     <script type="text/javascript" src="/js/lib/jquery-1.10.2.min.js"></script>

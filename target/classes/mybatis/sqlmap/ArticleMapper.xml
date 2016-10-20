@@ -112,5 +112,10 @@
 		from article order by add_time desc limit 1;
 	</select>
 
+	<select id="getArticleGroup" resultMap="ArticleMap">
+		select <include refid="selectAllColumns"/>
+		from article GROUP BY type;
+	</select>
+
 
 </mapper>
