@@ -12,10 +12,10 @@
     
 <body>
     <#--头部内容-->
-    <#include "common-header.ftl"/>
+    <#include "headerNew.ftl"/>
 
     <#--头部内容-->
-    <#include "banner.ftl"/>
+    <#--<#include "banner.ftl"/>-->
    
     <!--   栏目内容 -->
     <div class="content">
@@ -45,6 +45,6 @@
         </div>
     </div>
     <!--    尾部内容-->
-    <#include "common-footer.ftl"/>
+    <#include "footerNew.ftl"/>
 </body>
 </html>

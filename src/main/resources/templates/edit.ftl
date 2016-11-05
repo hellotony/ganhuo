@@ -2,14 +2,15 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/cssNew/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/table.css" />
     <link rel='icon' href="http://oekj1dj02.bkt.clouddn.com/icon.ico" type=‘image/x-ico’ />
 </head>
-    
+
 <body>
 
     <#--头部内容-->
-    <#include "common-header.ftl"/>
+    <#include "headerNew.ftl"/>
 
     <#--头部内容-->
     <#--<#include "banner.ftl"/>-->
@@ -43,6 +44,6 @@
     </div>
 
     <!--    尾部内容-->
-    <#include "common-footer.ftl"/>
+    <#include "footerNew.ftl"/>
 </body>
 </html>

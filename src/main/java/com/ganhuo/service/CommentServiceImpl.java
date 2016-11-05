@@ -52,8 +52,8 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> getRecentComments() {
-        return commentMapper.getRecentComments();
+    public List<Comment> getRecentComments(int count) {
+        return commentMapper.getRecentComments(count);
     }
 
     @Override

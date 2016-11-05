@@ -1,6 +1,7 @@
 package com.ganhuo.controller;
 
 import com.ganhuo.model.domain.Article;
+import com.ganhuo.model.domain.ArticleDesc;
 import com.ganhuo.model.domain.Comment;
 import com.ganhuo.model.domain.Module;
 import com.ganhuo.service.client.ArticleService;
@@ -52,6 +53,7 @@ public class ArticleController {
         List<Module> modules = moduleService.getModuleList();
         List<Article> recentArticles = articleService.getRecentArticles();
         List<Comment> comments = commentService.getCommentsByArticleId(articleId);
+        List<ArticleDesc> indexArticles = articleService.getIndexArticle();
         Article article= articleService.getArticleById(articleId);
         article.setReadTimes(article.getReadTimes()+1);
         articleService.updateReadTime(article);
@@ -59,8 +61,9 @@ public class ArticleController {
         m.addObject("modules",modules);
         m.addObject("article",article);
         m.addObject("comments",comments);
+        m.addObject("indexArticles",indexArticles);
         m.addObject("host",Host);
-        m.setViewName("/article");
+        m.setViewName("/articleNew");
         return m;
     }
 

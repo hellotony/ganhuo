@@ -72,7 +72,7 @@
 
 	<select id="getRecentComments" resultMap="commentMap" >
 		SELECT <include refid="selectAllColumns"/>
-		from comment order by add_time desc limit 3;
+		from comment order by add_time desc limit #{count};
 	</select>
 
 	<select id="getMostHotComment" resultMap="commentMap" >

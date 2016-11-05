@@ -27,7 +27,7 @@
 <body>
 
 <#--头部内容-->
-<#include "common-header.ftl"/>
+<#include "headerNew.ftl"/>
 
 <div class="main-body">
     <span class="title">发表干货</span><br><br>
@@ -262,7 +262,7 @@
 </div>
 
 <!--    尾部内容-->
-<#include "common-footer.ftl"/>
+<#include "footerNew.ftl"/>
 
 </body>
 </html>

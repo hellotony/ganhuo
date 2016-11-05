@@ -1,22 +1,14 @@
 package com.ganhuo.controller;
 
-import com.ganhuo.model.domain.Article;
-import com.ganhuo.model.domain.Module;
-import com.ganhuo.model.domain.Tocken;
-import com.ganhuo.service.client.ArticleService;
+import com.ganhuo.model.domain.*;
+import com.ganhuo.service.client.ArticleDescService;
+import com.ganhuo.service.client.CommentService;
 import com.ganhuo.service.client.ModuleService;
 import com.qiniu.util.Auth;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import com.sun.tools.doclets.formats.html.PackageUseWriter;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by sunzhiqiang on 2016/8/26.
@@ -26,10 +18,13 @@ import java.util.Map;
 public class IndexController {
 
     @Resource
-    private ArticleService articleService;
+    private ArticleDescService articleDescService;
 
     @Resource
     private ModuleService moduleService;
+
+    @Resource
+    private CommentService commentService;
 
     @RequestMapping("")
     public ModelAndView get(@RequestHeader("Host") String Host){
@@ -44,25 +39,31 @@ public class IndexController {
     private ModelAndView returnIndex(String Host){
         ModelAndView modelAndView = new ModelAndView();
         List<Module> modules = moduleService.getModuleList();
-        List<Article> articles = articleService.getArticleGroup();
-        Article art = articleService.getLastArticle();
-        List<Article> hotArticles = articleService.getMostHotArticle(9);
-        for(Module m:modules){
-            for(Article a:articles){
-                if(a.getType() == m.getId()){
-                    m.setArticle(a);
-                }
-            }
-        }
-        modelAndView.addObject("hotArticles",hotArticles);
+//        List<ArticleDesc> articles = articleDescService.getArticleGroup();
+        List<ArticleDesc> indexArticles = articleDescService.getIndexArticle();
+//        ArticleDesc art = articleDescService.getLastArticle();
+        List<ArticleDesc> lastArticles = articleDescService.getLastArticles(5);
+        List<Comment> comments = commentService.getRecentComments(5);
+//        List<ArticleDesc> hotArticles = articleDescService.getMostHotArticle(9);
+//        for(Module m:modules){
+//            for(ArticleDesc a:articles){
+//                if(a.getType() == m.getId()){
+//                    m.setArticleDesc(a);
+//                }
+//            }
+//        }
+//        modelAndView.addObject("hotArticles",hotArticles);
+        modelAndView.addObject("lastArticles",lastArticles);
         modelAndView.addObject("modules",modules);
-        modelAndView.addObject("art",art);
-        return result(Host,"/index",modelAndView);
+        modelAndView.addObject("comments",comments);
+//        modelAndView.addObject("art",art);
+        modelAndView.addObject("indexArticles",indexArticles);
+        return result(Host,"/indexNew",modelAndView);
     }
 
     @RequestMapping("/module")
     public ModelAndView module(@RequestHeader("Host") String Host){
-        List<Article> articleList = articleService.getArticleListByType(1);
+        List<ArticleDesc> articleList = articleDescService.getArticleListByType(1);
         List<Module> modules = moduleService.getModuleList();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("modules",modules);
@@ -73,7 +74,7 @@ public class IndexController {
     }
 //    @RequestMapping("/table")
 //    public ModelAndView table(@RequestHeader("Host") String Host){
-//        List<Article> articleList = articleService.getArticleListByType(1);
+//        List<ArticleDesc> articleList = articleDescService.getArticleListByType(1);
 //        List<Module> modules = moduleService.getModuleList();
 //        ModelAndView modelAndView = new ModelAndView();
 //        modelAndView.addObject("modules",modules);
@@ -85,7 +86,7 @@ public class IndexController {
 
     @RequestMapping("/edit")
     public ModelAndView edit(@RequestHeader("Host") String Host){
-        List<Article> articleList = articleService.getAllArticle();
+        List<ArticleDesc> articleList = articleDescService.getAllArticle();
         List<Module> modules = moduleService.getModuleList();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("modules",modules);
@@ -113,12 +114,12 @@ public class IndexController {
 
     @RequestMapping("/article")
     public ModelAndView article(@RequestHeader("Host") String Host){
-        Article article = articleService.getFirstArticle();
+        ArticleDesc article = articleDescService.getFirstArticle();
         article.setReadTimes(article.getReadTimes()+1);
-        articleService.updateReadTime(article);
+        articleDescService.updateReadTime(article);
         List<Module> modules = moduleService.getModuleList();
         ModelAndView modelAndView = new ModelAndView();
-        List<Article> recentArticles = articleService.getRecentArticles();
+        List<ArticleDesc> recentArticles = articleDescService.getRecentArticles();
         modelAndView.addObject("recentArticles",recentArticles);
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("article",article);

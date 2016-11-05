@@ -18,7 +18,7 @@ public interface CommentMapper {
 
     List<Comment> getCommentListByType(Integer typeId);
 
-    List<Comment> getRecentComments();
+    List<Comment> getRecentComments(@Param("count")int count);
 
     void updateComment(Comment comment);
 

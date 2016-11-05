@@ -37,10 +37,10 @@ public interface CommentService {
     List<Comment> getCommentListByType(Integer typeId);
 
     /**
-     * 获取最新的文章
+     * 获取最新的评论
      * @return
      */
-    List<Comment> getRecentComments();
+    List<Comment> getRecentComments(int count);
 
     /**
      * 增加阅读次数

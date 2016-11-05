@@ -1,10 +1,8 @@
 package com.ganhuo.service;
 
-import com.ganhuo.mapper.ArticleMapper;
 import com.ganhuo.mapper.ArticleDescMapper;
-import com.ganhuo.model.domain.Article;
 import com.ganhuo.model.domain.ArticleDesc;
-import com.ganhuo.service.client.ArticleService;
+import com.ganhuo.service.client.ArticleDescService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
@@ -14,11 +12,8 @@ import java.util.List;
 /**
  * Created by sunzhiqiang on 2016/8/26.
  */
-@Service("articleService")
-public class ArticleServiceImpl implements ArticleService {
-
-    @Resource
-    private ArticleMapper articleMapper;
+@Service("articleDescService")
+public class ArticleDescServiceImpl implements ArticleDescService {
 
     @Resource
     private ArticleDescMapper articleDescMapper;
@@ -29,94 +24,97 @@ public class ArticleServiceImpl implements ArticleService {
         if(StringUtils.isBlank(content) || StringUtils.isBlank(title)){
             return 0;
         }
-        Article article = new Article();
+        ArticleDesc article = new ArticleDesc();
         article.setTitle(title);
         article.setType(type);
         article.setDescription(articleDesc);
         article.setImgUrl(topicImageUrl);
-        article.setContent(content);
         article.setReadTimes(12);
         article.setCommend(2);
         article.setDelFlag(0);
         article.setAddTime(new Date());
         article.setUpdateTime(new Date());
-        articleMapper.insert(article);
+        articleDescMapper.insert(article);
         return article.getId();
     }
 
     @Override
-    public Article getArticleById(Long id) {
-        return articleMapper.getArticleById(id);
+    public ArticleDesc getArticleById(Long id) {
+        return articleDescMapper.getArticleById(id);
     }
 
     @Override
-    public Article getFirstArticle() {
-        return articleMapper.getFirstArticle();
+    public ArticleDesc getFirstArticle() {
+        return articleDescMapper.getFirstArticle();
     }
 
     @Override
-    public List<Article> getArticleListByType(Integer typeId) {
-        List<Article> articles = articleMapper.getArticleListByType(typeId);
+    public List<ArticleDesc> getArticleListByType(Integer typeId) {
+        List<ArticleDesc> articles = articleDescMapper.getArticleListByType(typeId);
         return articles;
     }
 
     @Override
-    public List<Article> getRecentArticles() {
-        return articleMapper.getRecentArticles();
+    public List<ArticleDesc> getRecentArticles() {
+        return articleDescMapper.getRecentArticles();
     }
 
     @Override
-    public void updateReadTime(Article article) {
-        articleMapper.updateArticle(article);
+    public void updateReadTime(ArticleDesc article) {
+        articleDescMapper.updateArticle(article);
     }
 
     @Override
-    public List<Article> getMostHotArticle(int i) {
-        return articleMapper.getMostHotArticle(i);
+    public List<ArticleDesc> getMostHotArticle(int i) {
+        return articleDescMapper.getMostHotArticle(i);
     }
 
     @Override
-    public List<Article> getArticleByModule(List<Integer> param) {
+    public List<ArticleDesc> getArticleByModule(List<Integer> param) {
 
-        return articleMapper.getArticleByModule(param);
+        return articleDescMapper.getArticleByModule(param);
     }
 
     @Override
-    public List<Article> getAllArticle() {
-        return articleMapper.getAllArticle();
+    public List<ArticleDesc> getAllArticle() {
+        return articleDescMapper.getAllArticle();
     }
 
     @Override
     public Integer update(Integer id, String content, String title, String topicImageUrl, String articleDesc) {
-        Article a = new Article();
+        ArticleDesc a = new ArticleDesc();
         a.setId(id);
         a.setTitle(title);
-        a.setContent(content);
         a.setImgUrl(topicImageUrl);
         a.setDescription(articleDesc);
-        articleMapper.updateArticle(a);
+        articleDescMapper.updateArticle(a);
         return 1;
     }
 
     @Override
     public void updateCommentTimes(Integer articleId) {
-        articleMapper.updateCommentNum(articleId);
+        articleDescMapper.updateCommentNum(articleId);
 
     }
 
     @Override
-    public Article getLastArticle() {
-        return articleMapper.getLastArticle();
+    public ArticleDesc getLastArticle() {
+        return articleDescMapper.getLastArticle();
     }
 
     @Override
-    public List<Article> getArticleGroup() {
-        return articleMapper.getArticleGroup();
+    public List<ArticleDesc> getArticleGroup() {
+        return articleDescMapper.getArticleGroup();
     }
 
     @Override
     public List<ArticleDesc> getIndexArticle() {
         return articleDescMapper.getIndexArticle();
+    }
+
+    @Override
+    public List<ArticleDesc> getLastArticles(int count) {
+        return articleDescMapper.getLastArticles(count);
     }
 
 

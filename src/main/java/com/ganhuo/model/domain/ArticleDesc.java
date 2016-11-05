@@ -5,10 +5,10 @@ import com.ganhuo.model.annotation.db.Table;
 import com.ganhuo.model.domain.base.BaseEntity;
 
 /**
- * Created by sunzhiqiang on 2016/8/26.
+ * Created by sunzhiqiang on 2016/11/3.
  */
-@Table(name = "article",description = "存储对应的文章")
-public class Article extends BaseEntity {
+@Table(name = "article_desc",description = "文章相关的描述")
+public class ArticleDesc extends BaseEntity{
 
     @Column(name = "title",description = "文章标题")
     private String title;
@@ -22,9 +22,6 @@ public class Article extends BaseEntity {
     @Column(name = "type",description = "文章类型")
     private Integer type;
 
-    @Column(name = "content",description = "文章内容")
-    private String content;
-
     @Column(name = "read_times",description = "阅读次数")
     private int readTimes;
 
@@ -33,14 +30,6 @@ public class Article extends BaseEntity {
 
     @Column(name = "del_flag",description = "删除状态，1：已删除，0：未删除")
     private Integer delFlag;
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 
     public Integer getDelFlag() {
         return delFlag;
@@ -97,5 +86,4 @@ public class Article extends BaseEntity {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
-
 }

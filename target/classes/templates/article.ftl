@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <#include "common-header.ftl"/>
-    <#include "banner.ftl"/>
+    <#include "headerNew.ftl"/>
+    <#--<#include "banner.ftl"/>-->
 
     <!--   栏目内容 -->
     <div class="content">
@@ -21,6 +21,15 @@
                 <input type="hidden" id="articleId" value="${article.id}">
                 <div class="content-title">
                     <h1>${article.title!}</h1>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- firstAd -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:336px;height:280px"
+                         data-ad-client="ca-pub-3334321875292776"
+                         data-ad-slot="9838232446"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
                 <div class="content-info">
                     <#--<a href="article.ftl">智能</a>-->
@@ -90,14 +99,15 @@
                     </#list>
                 </ul>
             </div>
-            <div class="article-best"></div>
-            <div class="article-new"></div>
+
+            <div class="article-new">
+            </div>
         </div>
         <div style="clear:both"></div>
     </div>
 
     <!--    尾部内容-->
-    <#include "common-footer.ftl"/>
+    <#include "footerNew.ftl"/>
 
     <script>
         $("#submit").click(function(){

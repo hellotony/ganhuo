@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ganhuo.mapper.ArticleDescMapper">
+
+	<resultMap
+		type="com.ganhuo.model.domain.ArticleDesc"
+		id="articleDescMap">
+			<result column="id" property="id" />
+			<result column="title" property="title" />
+			<result column="type" property="type" />
+			<result column="img_url" property="imgUrl" />
+			<result column="description" property="description" />
+			<result column="read_times" property="readTimes" />
+			<result column="commend" property="commend" />
+			<result column="del_flag" property="delFlag" />
+			<result column="add_time" property="addTime" />
+			<result column="update_time" property="updateTime" />
+	</resultMap>
+	
+	<sql id="setAllColumns">
+		<set>
+			<if test="title != null">title = #{title},</if>
+			<if test="type != null">type = #{type},</if>
+			<if test="description != null">description = #{description},</if>
+			<if test="imgUrl != null">img_url = #{imgUrl},</if>
+			<if test="readTimes != null">read_times = #{readTimes},</if>
+			<if test="commend != null">commend = #{commend},</if>
+			<if test="delFlag != null">del_flag = #{delFlag},</if>
+			<if test="addTime != null">add_time = #{addTime},</if>
+			<if test="updateTime != null">update_time = #{updateTime},</if>
+		</set>
+	</sql>
+
+	<sql id="selectAllColumns">
+			id,
+			title,
+			type,
+			description,
+			img_url,
+			read_times,
+			commend,
+			del_flag,
+			add_time,
+			update_time
+	</sql>
+
+	<insert id="insert" parameterType="com.ganhuo.model.domain.ArticleDesc"
+			useGeneratedKeys="true" keyProperty="id">
+		insert into article
+		<include refid="setAllColumns"/>
+	</insert>
+
+	<update id="updateArticle">
+		update article
+		<include refid="setAllColumns" />
+		where id = #{id}
+	</update>
+
+	<select id="getArticleById" resultMap="articleDescMap">
+		SELECT <include refid="selectAllColumns"/>
+		from article where id = #{id} and del_flag = 0;
+	</select>
+
+	<select id="getAllArticle" resultMap="articleDescMap">
+		SELECT <include refid="selectAllColumns"/>
+		from article where del_flag = 0
+		order by add_time desc;
+	</select>
+
+	<select id="getFirstArticle" resultMap="articleDescMap">
+		SELECT <include refid="selectAllColumns"/>
+		from article ORDER BY id limit 1
+	</select>
+
+	<select id="getArticleListByType" resultMap="articleDescMap" >
+		SELECT <include refid="selectAllColumns"/>
+		from article where type= #{typeId} limit 9
+	</select>
+
+	<select id="getRecentArticles" resultMap="articleDescMap" >
+		SELECT <include refid="selectAllColumns"/>
+		from article order by add_time desc limit 3;
+	</select>
+
+	<select id="getMostHotArticle" resultMap="articleDescMap" >
+		SELECT <include refid="selectAllColumns"/>
+		from article order by read_times desc limit #{i};
+	</select>
+
+	<select id="getArticleByModule" resultMap="articleDescMap" >
+		SELECT <include refid="selectAllColumns"/>
+		from article where type in
+		<foreach item="param" index="index" collection="list" open="(" separator="," close=")">
+			#{param}
+		</foreach>
+		and del_flag = 0
+		order by read_times desc;
+	</select>
+
+	<update id="updateCommentNum" parameterType="Integer">
+		UPDATE article set commend = commend+1 where id = #{id};
+	</update>
+	
+	<select id="getLastArticle" resultMap="articleDescMap">
+		select <include refid="selectAllColumns"/>
+		from article order by add_time desc limit 1;
+	</select>
+
+	<select id="getArticleGroup" resultMap="articleDescMap">
+		select <include refid="selectAllColumns"/>
+		from article GROUP BY type;
+	</select>
+	
+	
+	<select id="getIndexArticle" resultMap="articleDescMap">
+		select <include refid="selectAllColumns"/>
+		from article
+	</select>
+
+	<select id="getLastArticles" resultMap="articleDescMap" parameterType="Integer">
+		select <include refid="selectAllColumns"/>
+		from article where del_flag = 0 order by add_time desc limit #{count};
+	</select>
+
+
+</mapper>

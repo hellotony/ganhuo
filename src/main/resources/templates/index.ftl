@@ -1,23 +1,42 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>干货网</title>
-    <meta name="description" content="干货网是面向整个互联网的内容整合分享网站，汇聚了互联网最精华的内容">
-    <meta name="keywords" content="干货，电影，励志，趣闻，福利">
+    <title>电影网</title>
+    <meta name="baidu-site-verification" content="IVFhr15GD7" />
+    <meta name="description" content="电影网是新生的互联网内容社区，利用垂直搜索技术，网罗互联网最优质电影，精细化分类，并根据广大网友的反馈定时更新！">
+    <meta name="keywords" content="电影网，电影，趣闻，音乐，励志，搞笑，生活，科技，旅行，福利">
     <link rel='icon' href="http://oekj1dj02.bkt.clouddn.com/icon.ico" type=‘image/x-ico’ />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />  
     <link rel="stylesheet" type="text/css" href="/css/main.css" />  
     <link rel="stylesheet" type="text/css" href="/css/item.css" />
 </head>
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-3334321875292776",
+        enable_page_level_ads: true
+    });
+</script>
 <body>
     <#--头部内容-->
-    <#include "common-header.ftl"/>
+    <#include "headerNew.ftl"/>
     <#--头部内容-->
-    <#include "banner.ftl"/>
+    <#--<#include "banner.ftl"/>-->
 
     <!--    页面内容        -->
     <div class="content">
+        <div class="ad">
+
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- banner -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-3334321875292776"
+                 data-ad-slot="6354885647"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
         <div class="overview"   >
             <div class="overview-left shadow">
                 <div class="topic-preview-wrapper ex ex-s">
@@ -119,7 +138,7 @@
     </div>
        
     <!--    尾部内容-->
-    <#include "common-footer.ftl"/>
+    <#include "footerNew.ftl"/>
 
 </body>
 </html>

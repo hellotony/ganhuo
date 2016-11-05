@@ -15,20 +15,18 @@ public class Module extends BaseEntity {
     @Column(name = "name",description = "模块名字")
     private String name;
 
-
     @Column(name="value",description = "模块对应值")
     private String value;
 
     @Column(name="count",description = "模块文章数量")
     private int count;
 
-
     @Column(name = "del_flag",description = "删除状态，1：已删除，0：未删除")
     private Integer delFlag;
 
-
     private Article article;
 
+    private ArticleDesc articleDesc;
 
     public String getName() {
         return name;
@@ -68,5 +66,13 @@ public class Module extends BaseEntity {
 
     public void setArticle(Article article) {
         this.article = article;
+    }
+
+    public ArticleDesc getArticleDesc() {
+        return articleDesc;
+    }
+
+    public void setArticleDesc(ArticleDesc articleDesc) {
+        this.articleDesc = articleDesc;
     }
 }

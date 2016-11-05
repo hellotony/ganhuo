@@ -41,6 +41,11 @@ public class DemoController {
 		return new ModelAndView("/index");
 	}
 
+	@RequestMapping("/index1")
+	public ModelAndView index1(){
+		return new ModelAndView("/indexNew");
+	}
+
 	@RequestMapping("/content")
 	public ModelAndView content(){
 		return new ModelAndView("/content");

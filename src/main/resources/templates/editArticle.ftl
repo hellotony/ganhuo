@@ -2,6 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/cssNew/common.css" />
     <link rel="stylesheet" type="text/css" href="/css/publish.css" />
     <link rel="stylesheet" type="text/css" href="/test/wangEditor/css/wangEditor.css">
     <link rel='icon' href='img/icon.ico ' type=‘image/x-ico’ />
@@ -27,7 +28,7 @@
 <body>
 
     <#--头部内容-->
-    <#include "common-header.ftl"/>
+    <#include "headerNew.ftl"/>
 
     <div class="main-body">
         <span class="title">发表干货</span><br><br>
@@ -256,7 +257,7 @@
     </div>
 
     <!--    尾部内容-->
-    <#include "common-footer.ftl"/>
+    <#include "footerNew.ftl"/>
 
 </body>
 </html>
