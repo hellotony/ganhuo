@@ -11,7 +11,7 @@
 <body>
 
     <#--头部内容-->
-    <#include "common-header.ftl"/>
+    <#include "headerNew.ftl"/>
    
     <div class="content">
         <div class="login">
@@ -26,7 +26,7 @@
 
 
     <!--    尾部内容-->
-    <#include "common-footer.ftl"/>
+    <#include "footerNew.ftl"/>
 
 </body>
 </html>

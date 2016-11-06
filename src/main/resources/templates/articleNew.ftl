@@ -76,7 +76,7 @@
                 </div>
                 <div class="table-desc">
                         <span class="table-article-description">
-                        ${indexArticles[9].description!}
+                        ${indexArticles[10].description!}
                         </span>
                 </div>
             </div>

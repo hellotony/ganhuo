@@ -2,9 +2,11 @@ package com.ganhuo.controller;
 
 import com.ganhuo.model.domain.Article;
 import com.ganhuo.model.domain.ArticleDesc;
+import com.ganhuo.model.domain.Comment;
 import com.ganhuo.model.domain.Module;
 import com.ganhuo.service.client.ArticleDescService;
 import com.ganhuo.service.client.ArticleService;
+import com.ganhuo.service.client.CommentService;
 import com.ganhuo.service.client.ModuleService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -31,11 +33,15 @@ public class ModuleController {
     @Resource
     private ArticleDescService articleDescService;
 
+    @Resource
+    private CommentService commentService;
+
     @RequestMapping("/{typeId}")
     public ModelAndView module(@PathVariable("typeId") Integer typeId,@RequestHeader("Host") String Host) {
         List<Article> articleList = articleService.getArticleListByType(typeId);
         List<Module> modules = moduleService.getModuleList();
         List<ArticleDesc> lastArticles = articleDescService.getLastArticles(5);
+        List<Comment> comments = commentService.getRecentComments(5);
         Module module = new Module();
         for(Module m:modules){
             if(m.getId() == typeId){
@@ -47,9 +53,9 @@ public class ModuleController {
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("articles", articleList);
         modelAndView.addObject("lastArticles",lastArticles);
+        modelAndView.addObject("comments",comments);
         modelAndView.addObject("host",Host);
         modelAndView.setViewName("/module");
-//        modelAndView.setViewName("/table");
         return modelAndView;
     }
 

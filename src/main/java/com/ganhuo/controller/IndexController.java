@@ -39,24 +39,13 @@ public class IndexController {
     private ModelAndView returnIndex(String Host){
         ModelAndView modelAndView = new ModelAndView();
         List<Module> modules = moduleService.getModuleList();
-//        List<ArticleDesc> articles = articleDescService.getArticleGroup();
         List<ArticleDesc> indexArticles = articleDescService.getIndexArticle();
-//        ArticleDesc art = articleDescService.getLastArticle();
         List<ArticleDesc> lastArticles = articleDescService.getLastArticles(5);
         List<Comment> comments = commentService.getRecentComments(5);
-//        List<ArticleDesc> hotArticles = articleDescService.getMostHotArticle(9);
-//        for(Module m:modules){
-//            for(ArticleDesc a:articles){
-//                if(a.getType() == m.getId()){
-//                    m.setArticleDesc(a);
-//                }
-//            }
-//        }
-//        modelAndView.addObject("hotArticles",hotArticles);
+
         modelAndView.addObject("lastArticles",lastArticles);
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("comments",comments);
-//        modelAndView.addObject("art",art);
         modelAndView.addObject("indexArticles",indexArticles);
         return result(Host,"/indexNew",modelAndView);
     }
@@ -72,17 +61,6 @@ public class IndexController {
         modelAndView.setViewName("/content");
         return modelAndView;
     }
-//    @RequestMapping("/table")
-//    public ModelAndView table(@RequestHeader("Host") String Host){
-//        List<ArticleDesc> articleList = articleDescService.getArticleListByType(1);
-//        List<Module> modules = moduleService.getModuleList();
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject("modules",modules);
-//        modelAndView.addObject("articles", articleList);
-//        modelAndView.addObject("host",Host);
-//        modelAndView.setViewName("/table");
-//        return modelAndView;
-//    }
 
     @RequestMapping("/edit")
     public ModelAndView edit(@RequestHeader("Host") String Host){
@@ -104,13 +82,6 @@ public class IndexController {
         return result(Host,"/publish",modelAndView);
     }
 
-    @RequestMapping("/publish1")
-    public ModelAndView publish1(@RequestHeader("Host") String Host){
-        ModelAndView modelAndView = new ModelAndView();
-        List<Module> modules = moduleService.getModuleList();
-        modelAndView.addObject("modules",modules);
-        return result(Host,"/publish1",modelAndView);
-    }
 
     @RequestMapping("/article")
     public ModelAndView article(@RequestHeader("Host") String Host){

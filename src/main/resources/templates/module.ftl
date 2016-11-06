@@ -57,7 +57,7 @@
                     </div>
                     <div class="block-desc">
                         <div class="desc-tilte">
-                            <h4> <span class="table-list-name">${l.title!}</span></h4>
+                            <a href="http://${host}/article/${l.id!}"><h4><span class="table-list-name">${l.title!}</span></h4></a>
                         </div>
                         <div class="desc-data">
                             <span class="block-time">${l.addTime?datetime!}</span>
@@ -80,10 +80,9 @@
             </div>
 
             <ul>
-                <li class="comment">说到毁誉参半的食物，在水果界里，榴当仁不让。而在蔬菜界，香菜就是至尊魔王了，它排第二，没菜敢排第一。有人说鱼腥草表示不服，不服它就憋着。鱼腥草曾经很风光，但如今</li>
-                <li class="comment">说到毁誉参半的食物，在水果界里，榴当仁不让。而在蔬菜界，香菜就是至尊魔王了，它排第</li>
-                <li class="comment">说到毁誉参半的食物，在水果界里二，没菜敢排第一。有人说鱼腥草表示不服，不服它就憋着。鱼腥草曾经很风光，但如今</li>
-                <li class="comment">说到毁誉参半的食物，在水果界里敢排第一。有人说鱼腥草表示不服，不服它就憋着。鱼腥草曾经很风光，但如今</li>
+                <#list comments as l>
+                    <a href="http://${host}/article/${l.articleId!}"><li class="comment">${l.content!}</li></a>
+                </#list>
             </ul>
 
 
