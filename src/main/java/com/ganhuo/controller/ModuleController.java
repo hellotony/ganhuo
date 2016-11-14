@@ -38,7 +38,7 @@ public class ModuleController {
 
     @RequestMapping("/{typeId}")
     public ModelAndView module(@PathVariable("typeId") Integer typeId,@RequestHeader("Host") String Host) {
-        List<Article> articleList = articleService.getArticleListByType(typeId);
+        List<ArticleDesc> articleList = articleDescService.getArticleListByType(typeId);
         List<Module> modules = moduleService.getModuleList();
         List<ArticleDesc> lastArticles = articleDescService.getLastArticles(5);
         List<Comment> comments = commentService.getRecentComments(5);

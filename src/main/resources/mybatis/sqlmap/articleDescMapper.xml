@@ -49,50 +49,50 @@
 
 	<insert id="insert" parameterType="com.ganhuo.model.domain.ArticleDesc"
 			useGeneratedKeys="true" keyProperty="id">
-		insert into article
+		insert into article_desc
 		<include refid="setAllColumns"/>
 	</insert>
 
 	<update id="updateArticle">
-		update article
+		update article_desc
 		<include refid="setAllColumns" />
 		where id = #{id}
 	</update>
 
 	<select id="getArticleById" resultMap="articleDescMap">
 		SELECT <include refid="selectAllColumns"/>
-		from article where id = #{id} and del_flag = 0;
+		from article_desc where id = #{id} and del_flag = 0;
 	</select>
 
 	<select id="getAllArticle" resultMap="articleDescMap">
 		SELECT <include refid="selectAllColumns"/>
-		from article where del_flag = 0
-		order by add_time desc;
+		from article_desc where del_flag = 0
+		order by update_time desc;
 	</select>
 
 	<select id="getFirstArticle" resultMap="articleDescMap">
 		SELECT <include refid="selectAllColumns"/>
-		from article ORDER BY id limit 1
+		from article_desc ORDER BY id limit 1
 	</select>
 
 	<select id="getArticleListByType" resultMap="articleDescMap" >
 		SELECT <include refid="selectAllColumns"/>
-		from article where type= #{typeId} limit 9
+		from article_desc where type= #{typeId} order by update_time desc;
 	</select>
 
 	<select id="getRecentArticles" resultMap="articleDescMap" >
 		SELECT <include refid="selectAllColumns"/>
-		from article order by add_time desc limit 3;
+		from article_desc order by update_time desc limit 3;
 	</select>
 
 	<select id="getMostHotArticle" resultMap="articleDescMap" >
 		SELECT <include refid="selectAllColumns"/>
-		from article order by read_times desc limit #{i};
+		from article_desc order by read_times desc limit #{i};
 	</select>
 
 	<select id="getArticleByModule" resultMap="articleDescMap" >
 		SELECT <include refid="selectAllColumns"/>
-		from article where type in
+		from article_desc where type in
 		<foreach item="param" index="index" collection="list" open="(" separator="," close=")">
 			#{param}
 		</foreach>
@@ -101,28 +101,28 @@
 	</select>
 
 	<update id="updateCommentNum" parameterType="Integer">
-		UPDATE article set commend = commend+1 where id = #{id};
+		UPDATE article_desc set commend = commend+1 where id = #{id};
 	</update>
 	
 	<select id="getLastArticle" resultMap="articleDescMap">
 		select <include refid="selectAllColumns"/>
-		from article order by add_time desc limit 1;
+		from article_desc order by update_time desc limit 1;
 	</select>
 
 	<select id="getArticleGroup" resultMap="articleDescMap">
 		select <include refid="selectAllColumns"/>
-		from article GROUP BY type;
+		from article_desc GROUP BY type;
 	</select>
 	
 	
 	<select id="getIndexArticle" resultMap="articleDescMap">
 		select <include refid="selectAllColumns"/>
-		from article
+		from article_desc
 	</select>
 
 	<select id="getLastArticles" resultMap="articleDescMap" parameterType="Integer">
 		select <include refid="selectAllColumns"/>
-		from article where del_flag = 0 order by add_time desc limit #{count};
+		from article_desc where del_flag = 0 order by update_time desc limit #{count};
 	</select>
 
 

@@ -51,13 +51,11 @@ public class ArticleController {
     public ModelAndView get(@PathVariable("articleId") Long articleId,@RequestHeader("Host") String Host){
         ModelAndView m = new ModelAndView();
         List<Module> modules = moduleService.getModuleList();
-        List<Article> recentArticles = articleService.getRecentArticles();
         List<Comment> comments = commentService.getCommentsByArticleId(articleId);
         List<ArticleDesc> indexArticles = articleService.getIndexArticle();
         Article article= articleService.getArticleById(articleId);
         article.setReadTimes(article.getReadTimes()+1);
         articleService.updateReadTime(article);
-        m.addObject("recentArticles",recentArticles);
         m.addObject("modules",modules);
         m.addObject("article",article);
         m.addObject("comments",comments);

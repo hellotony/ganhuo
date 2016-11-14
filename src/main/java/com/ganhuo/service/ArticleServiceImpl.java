@@ -35,12 +35,25 @@ public class ArticleServiceImpl implements ArticleService {
         article.setDescription(articleDesc);
         article.setImgUrl(topicImageUrl);
         article.setContent(content);
-        article.setReadTimes(12);
-        article.setCommend(2);
+        article.setReadTimes(0);
+        article.setCommend(0);
         article.setDelFlag(0);
         article.setAddTime(new Date());
         article.setUpdateTime(new Date());
         articleMapper.insert(article);
+
+        ArticleDesc ar = new ArticleDesc();
+        ar.setReadTimes(0);
+        ar.setDelFlag(0);
+        ar.setAddTime(new Date());
+        ar.setUpdateTime(new Date());
+        ar.setCommend(0);
+        ar.setDescription(articleDesc);
+        ar.setImgUrl(topicImageUrl);
+        ar.setTitle(title);
+        ar.setType(type);
+        articleDescMapper.insert(ar);
+
         return article.getId();
     }
 
@@ -95,6 +108,13 @@ public class ArticleServiceImpl implements ArticleService {
         a.setImgUrl(topicImageUrl);
         a.setDescription(articleDesc);
         articleMapper.updateArticle(a);
+
+        ArticleDesc ar = new ArticleDesc();
+        ar.setId(id);
+        ar.setTitle(title);
+        ar.setImgUrl(topicImageUrl);
+        ar.setDescription(articleDesc);
+        articleDescMapper.updateArticle(ar);
         return 1;
     }
 

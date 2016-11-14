@@ -131,8 +131,9 @@
         var articleId = $("#articleId").val();
         var date = new Date();
 
-        if(author == null || content == null){
-            alert("名字和内容都不能为空");
+        if(author == null || content == null || author == "" || content == ""){
+            alert("名字 或 内容都不能为空");
+            return;
         }
         //插入评论
         $.ajax({
