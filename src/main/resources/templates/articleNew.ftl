@@ -2,6 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>${article.title!}</title>
+    <link rel="shortcut icon" href="../img/icon.ico" />
     <meta name="description" content="${article.description!}">
     <meta name="keywords" content="${article.title!}">
     <link rel="stylesheet" type="text/css" href="../cssNew/common.css" />

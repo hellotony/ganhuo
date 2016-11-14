@@ -1,6 +1,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="../img/icon.ico" />
     <title>${module.name!}</title>
     <meta name="description" content="${module.name!}">
     <meta name="keywords" content="${module.name!}">

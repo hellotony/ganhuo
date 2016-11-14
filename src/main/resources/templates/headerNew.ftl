@@ -6,11 +6,11 @@
                     <img src="http://demo.tagdiv.com/newspaper/wp-content/uploads/2016/01/logo-header.png">
                 </a>
             </div>
-            <div class="h-top-right">
-                <a href="http://${host}/" title="">
-                    <img src="http://demo.tagdiv.com/newspaper/wp-content/uploads/2016/01/rec728.jpg">
-                </a>
-            </div>
+            <#--<div class="h-top-right">-->
+                <#--<a href="http://${host}/" title="">-->
+                    <#--<img src="http://demo.tagdiv.com/newspaper/wp-content/uploads/2016/01/rec728.jpg">-->
+                <#--</a>-->
+            <#--</div>-->
             <div style="clear:both"></div>
         </div>
 

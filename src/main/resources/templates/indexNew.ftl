@@ -2,7 +2,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>干货网</title>
+    <link rel="shortcut icon" href="../img/icon.ico" />
     <meta name="baidu-site-verification" content="IVFhr15GD7" />
+    <meta name="360-site-verification" content="1303633b6f52b6cd458a04432c50e8e1" />
     <meta name="description" content="干货网是新生的互联网内容社区，利用垂直搜索技术，网罗互联网最优质内容，精细化分类，并根据广大网友的反馈定时更新！">
     <meta name="keywords" content="干货网，干货，电影，趣闻，音乐，励志，搞笑，生活，科技，旅行，福利">
     <link rel="stylesheet" type="text/css" href="../cssNew/common.css" />

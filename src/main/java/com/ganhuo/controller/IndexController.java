@@ -113,7 +113,22 @@ public class IndexController {
         return tocken;
     }
 
+//    @RequestMapping("/404")
+//    public ModelAndView notFoudError(@RequestHeader("Host") String Host){
+//        ModelAndView modelAndView = new ModelAndView();
+//        return result(Host,"/404",modelAndView);
+//    }
+//
+//    @RequestMapping("/500")
+//    public ModelAndView serverError(@RequestHeader("Host") String Host){
+//        ModelAndView modelAndView = new ModelAndView();
+//        return result(Host,"/500",modelAndView);
+//    }
+
+
     private ModelAndView result(String Host,String name,ModelAndView modelAndView){
+        List<Module> modules = moduleService.getModuleList();
+        modelAndView.addObject("modules",modules);
         modelAndView.addObject("host",Host);
         modelAndView.setViewName(name);
         return modelAndView;

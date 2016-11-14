@@ -80,7 +80,7 @@
 
 	<select id="getArticleListByType" resultMap="ArticleMap" >
 		SELECT <include refid="selectAllColumns"/>
-		from article where type= #{typeId} limit 9
+		from article where type= #{typeId} ORDER by update_time desc limit 9
 	</select>
 
 	<select id="getRecentArticles" resultMap="ArticleMap" >
