@@ -33,4 +33,6 @@ public interface ArticleMapper {
     Article getLastArticle();
 
     List<Article> getArticleGroup();
+
+    void saveSpiderText(Article article);
 }

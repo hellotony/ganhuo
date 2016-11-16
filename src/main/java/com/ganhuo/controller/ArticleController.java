@@ -54,9 +54,11 @@ public class ArticleController {
         List<Comment> comments = commentService.getCommentsByArticleId(articleId);
         List<ArticleDesc> indexArticles = articleService.getIndexArticle();
         Article article= articleService.getArticleById(articleId);
+        Module module = modules.get(article.getType()-1);
         article.setReadTimes(article.getReadTimes()+1);
         articleService.updateReadTime(article);
         m.addObject("modules",modules);
+        m.addObject("module",module);
         m.addObject("article",article);
         m.addObject("comments",comments);
         m.addObject("indexArticles",indexArticles);

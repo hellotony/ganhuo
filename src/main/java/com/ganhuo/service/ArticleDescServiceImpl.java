@@ -1,6 +1,7 @@
 package com.ganhuo.service;
 
 import com.ganhuo.mapper.ArticleDescMapper;
+import com.ganhuo.model.domain.Article;
 import com.ganhuo.model.domain.ArticleDesc;
 import com.ganhuo.service.client.ArticleDescService;
 import org.apache.commons.lang3.StringUtils;
@@ -115,6 +116,17 @@ public class ArticleDescServiceImpl implements ArticleDescService {
     @Override
     public List<ArticleDesc> getLastArticles(int count) {
         return articleDescMapper.getLastArticles(count);
+    }
+
+    @Override
+    public void addSpiderDesc(List<ArticleDesc> articleDescs) {
+        articleDescMapper.batchInsertSpider(articleDescs);
+    }
+
+    @Override
+    public List<ArticleDesc> getSpirderUrl() {
+
+        return articleDescMapper.getSpiderUrl();
     }
 
 

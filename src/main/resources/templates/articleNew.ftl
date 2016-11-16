@@ -17,9 +17,12 @@
 <div class="content">
     <input type="hidden" id="articleId" value="${article.id}">
     <div class="articleLeft">
-        <div class="tag">
-            <div class="gan">干货</div>
+        <div class="breadcrumb">
+            <a href="http://${host}/"> 首页</a> > <a href="http://${host}/module/${module.id}">${module.name!}</a>
         </div>
+            <#--<div class="tag">-->
+                <#--<div class="gan">干货</div>-->
+            <#--</div>-->
         <div class="articleHeader">
             <div >
                 <h3 class="title">${article.title!}</h3>

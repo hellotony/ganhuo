@@ -103,4 +103,10 @@ public interface ArticleService {
      * 获取首页 显示文章
      */
     List<ArticleDesc> getIndexArticle();
+
+    /**
+     * 保存 爬虫的文章
+     * @param article
+     */
+    void saveSpiderText(Article article);
 }

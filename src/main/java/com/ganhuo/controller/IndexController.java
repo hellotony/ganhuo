@@ -1,7 +1,9 @@
 package com.ganhuo.controller;
 
+import com.ganhuo.config.SpiderUtil;
 import com.ganhuo.model.domain.*;
 import com.ganhuo.service.client.ArticleDescService;
+import com.ganhuo.service.client.ArticleService;
 import com.ganhuo.service.client.CommentService;
 import com.ganhuo.service.client.ModuleService;
 import com.qiniu.util.Auth;
@@ -25,6 +27,9 @@ public class IndexController {
 
     @Resource
     private CommentService commentService;
+
+    @Resource
+    private ArticleService articleService;
 
     @RequestMapping("")
     public ModelAndView get(@RequestHeader("Host") String Host){
@@ -105,6 +110,24 @@ public class IndexController {
         return result(Host,"/login",modelAndView);
     }
 
+    @RequestMapping("/spider")
+    public void spider(@RequestHeader("Host") String Host){
+        List<ArticleDesc> articleDescs = SpiderUtil.lzys();
+        articleDescService.addSpiderDesc(articleDescs);
+        ModelAndView modelAndView = new ModelAndView();
+    }
+    @RequestMapping("/spiderArticle")
+    public void spiderArticle(@RequestHeader("Host") String Host){
+        List<ArticleDesc> articleDescs = articleDescService.getSpirderUrl();
+        for(ArticleDesc ar:articleDescs){
+            Article article = new Article();
+            article.setTitle(ar.getTitle());
+            article.setContent(SpiderUtil.getTextByUrl(ar.getImgUrl()));
+            articleService.saveSpiderText(article);
+        }
+        ModelAndView modelAndView = new ModelAndView();
+    }
+
     @RequestMapping("/uploadToken")
     public Tocken uploadToken(){
         Auth auth = Auth.create("Cb1t1_u_nnZQossAwz5hUeun-FRwvWupLze5A-yH","3gitOL1vKTA1ozChmwGV_U_Qa9GcPvJUAiuYTViI");
@@ -133,4 +156,6 @@ public class IndexController {
         modelAndView.setViewName(name);
         return modelAndView;
     }
+
+
 }

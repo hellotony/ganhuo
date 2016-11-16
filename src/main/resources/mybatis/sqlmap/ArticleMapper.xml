@@ -117,5 +117,9 @@
 		from article GROUP BY type;
 	</select>
 
+	<insert id="saveSpiderText" parameterType="com.ganhuo.model.domain.Article">
+		insert into article_copy(title,content)values(${title},${content});
+	</insert>
+
 
 </mapper>

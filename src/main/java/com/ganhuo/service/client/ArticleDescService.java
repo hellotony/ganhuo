@@ -109,4 +109,17 @@ public interface ArticleDescService {
      * @return
      */
     List<ArticleDesc> getLastArticles(int count);
+
+    /**
+     * 报错 爬虫的内容
+     * @param articleDescs
+     */
+    void addSpiderDesc(List<ArticleDesc> articleDescs);
+
+    /**
+     * 爬虫获取文章链接
+     * @return
+     */
+    List<ArticleDesc> getSpirderUrl();
+
 }

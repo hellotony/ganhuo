@@ -125,5 +125,24 @@
 		from article_desc where del_flag = 0 order by update_time desc limit #{count};
 	</select>
 
+	<insert id="batchInsertSpider" parameterType="java.util.List">
+		insert into article_spider
+		(
+		title,
+		img_url
+		)
+		values
+		<foreach collection="list" item="item" index="index" separator="," >
+			(
+			#{item.title},
+			#{item.imgUrl}
+			)
+		</foreach>
+	</insert>
+
+	<select id="getSpiderUrl" resultMap="articleDescMap">
+		select * from article_spider;
+	</select>
+
 
 </mapper>

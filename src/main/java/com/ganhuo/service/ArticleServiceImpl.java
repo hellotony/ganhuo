@@ -139,5 +139,10 @@ public class ArticleServiceImpl implements ArticleService {
         return articleDescMapper.getIndexArticle();
     }
 
+    @Override
+    public void saveSpiderText(Article article) {
+        articleMapper.saveSpiderText(article);
+    }
+
 
 }
