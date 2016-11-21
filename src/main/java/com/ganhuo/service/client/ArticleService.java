@@ -109,4 +109,23 @@ public interface ArticleService {
      * @param article
      */
     void saveSpiderText(Article article);
+
+    /**
+     * 获取 爬虫抓取的 文章
+     * @param i
+     * @return
+     */
+    List<Article> getSpiderArticle(int i);
+
+    /**
+     * 添加文章
+     * @param articles
+     */
+    void insert(List<Article> articles);
+
+    /**
+     * 删除 蜘蛛爬取 的文章
+     * @param articles
+     */
+    void deleteSpiderArticle(List<Article> articles);
 }

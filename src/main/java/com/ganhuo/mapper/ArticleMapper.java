@@ -35,4 +35,8 @@ public interface ArticleMapper {
     List<Article> getArticleGroup();
 
     void saveSpiderText(Article article);
+
+    List<Article> getSpiderArticle(@Param("count")int count);
+
+    void deleteSpiderArticle(List<Integer> param);
 }

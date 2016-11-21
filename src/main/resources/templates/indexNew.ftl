@@ -7,6 +7,7 @@
     <meta name="360-site-verification" content="1303633b6f52b6cd458a04432c50e8e1" />
     <meta name="description" content="干货网是新生的互联网内容社区，利用垂直搜索技术，网罗互联网最优质内容，精细化分类，并根据广大网友的反馈定时更新！">
     <meta name="keywords" content="干货网，干货，电影，趣闻，音乐，励志，搞笑，生活，科技，旅行，福利">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="HandheldFriendly" content="true">
     <link rel="stylesheet" type="text/css" href="../cssNew/common.css" />
     <link rel="stylesheet" type="text/css" href="../cssNew/index.css" />
 </head>
@@ -29,137 +30,40 @@
         </div>
     </div>
 
-    <!--        首页大图-->
-    <div class="big-img">
-        <div class="img-left">
-            <a href="http://${host}/article/${indexArticles[0].id!}">
-                <img alt="" width="534" height="462" src="${indexArticles[0].imgUrl!}">
-            </a>
-            <div class="img-left-info-container">
-                <div class="img-left-info-align">
-                    <div class="title-tag">
-                        <a href="http://${host}/article/${indexArticles[0].id!}" class="title-category">
-                            电影
-                        </a>
-                        <h3>
-                            <a href="http://${host}/article/${indexArticles[0].id!}" class="big-title">
-                                ${indexArticles[0].title!}
-                            </a>
-                        </h3>
-                        <h4>
-                            <a href="http://${host}/" class="big-auhor">
-                                作者：蜗牛快跑
-                            </a>
-                        </h4>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="img-right">
-            <div class="img-rignt-top">
-                <a href="http://${host}/article/${indexArticles[1].id!}">
-                    <img width="532" height="261" alt="" src="${indexArticles[1].imgUrl!}">
-                </a>
-                <div class="img-rignt-top-container">
-                    <div class="img-rignt-top-align">
-                        <div class="title-tag">
-                            <a href="http://${host}/article/${indexArticles[1].id!}" class="title-category">
-                                电影
-                            </a>
-                            <h3>
-                                <a href="http://${host}/article/${indexArticles[1].id!}" class="big-title">
-                                ${indexArticles[1].title!}
-                                </a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="img-rignt-bottom">
-                <div class="img-bottom-left">
-                    <a href="http://${host}/article/${indexArticles[2].id!}">
-                        <img width="265" height="198" alt="" src="${indexArticles[2].imgUrl!}">
-                    </a>
-                    <div class="img-bottom-left-container">
-                        <div class="img-bottom-left-align">
-                            <div class="title-tag">
-                                <a href="http://${host}/article/${indexArticles[2].id!}" class="title-category">
-                                    电影
-                                </a>
-                                <h3>
-                                    <a href="http://${host}/article/${indexArticles[2].id!}" class="small-title">
-                                        ${indexArticles[2].title!}
-                                    </a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="img-bottom-right">
-                    <a href="http://${host}/article/${indexArticles[3].id!}">
-                        <img width="265" height="198" alt="" src="${indexArticles[0].imgUrl!}">
-                    </a>
-                    <div class="img-bottom-left-container">
-                        <div class="img-bottom-left-align">
-                            <div class="title-tag">
-                                <a href="http://${host}/article/${indexArticles[3].id!}" class="title-category">
-                                    电影
-                                </a>
-                                <h3>
-                                    <a href="http://${host}/article/${indexArticles[3].id!}" class="small-title">
-                                        ${indexArticles[3].title!}
-                                    </a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="clear:both"></div>
-        </div>
-        <div style="clear:both"></div>
-    </div>
-
     <!--        内容列表页-->
     <div class="table">
         <div class="table-left">
             <div class="table-one">
-                <div class="table-one-top green-bottom">
-                    <div class="table-one-top-block-title green-background">
-                        最新内容
-                    </div>
-                </div>
                 <div class="table-one-content">
                     <div class="table-one-content-left" id="img-one">
                         <div class="table-one-content-left-image">
-                            <a href="http://${host}/article/${lastArticles[0].id!}" ><img alt="" width="324" height="235" src="${lastArticles[0].imgUrl!}"></a>
+                            <a href="http://${host}/article/${indexArticles[0].id!}" ><img alt="" width="324" height="235" src="${indexArticles[0].imgUrl!}"></a>
                         </div>
                         <div class="table-one-content-left-title">
-                            <a href="http://${host}/article/${lastArticles[0].id!}" style="">${lastArticles[0].title!}</a>
+                            <a href="http://${host}/article/${indexArticles[0].id!}" style="">${indexArticles[0].title!}</a>
                         </div>
                         <div>
-                            <span class="table-author">蜗牛快跑</span>     <span class="talbe-add-time">| ${lastArticles[0].addTime?datetime!}</span>
+                            <span class="table-author">蜗牛快跑</span>     <span class="talbe-add-time">| ${indexArticles[0].addTime?datetime!}</span>
                         </div>
                         <div class="table-ar-desc">
                                 <span class="table-article-description">
-                                    ${lastArticles[0].description!}
+                                    ${indexArticles[0].description!}
                                 </span>
                         </div>
                     </div>
                     <div class="talbe-one-content-right">
                         <div class="table-block">
                             <div class="block-img">
-                                <a href="http://${host}/article/${lastArticles[1].id!}">
-                                    <img width="100" height="70" src="${lastArticles[1].imgUrl!}" alt="">
+                                <a href="http://${host}/article/${indexArticles[1].id!}">
+                                    <img width="70" height="70" src="${indexArticles[1].imgUrl!}" alt="">
                                 </a>
                             </div>
                             <div class="block-desc">
                                 <div class="desc-tilte">
-                                    <a href="http://${host}/article/${lastArticles[1].id!}"> <h4> <span class="table-list-name"> ${lastArticles[1].title!}</span></h4></a>
+                                    <a href="http://${host}/article/${indexArticles[1].id!}"> <h4> <span class="table-list-name"> ${indexArticles[1].title!}</span></h4></a>
                                 </div>
                                 <div class="desc-data">
-                                    <span class="block-time">${lastArticles[1].addTime?datetime!}</span>
+                                    <span class="block-time">${indexArticles[1].addTime?datetime!}</span>
                                 </div>
                                 <div style="clear:both"></div>
                             </div>
@@ -167,16 +71,16 @@
                         </div>
                         <div class="table-block">
                             <div class="block-img">
-                                <a href="http://${host}/article/${lastArticles[2].id!}">
-                                    <img width="100" height="70" src="${lastArticles[2].imgUrl!}" alt="">
+                                <a href="http://${host}/article/${indexArticles[2].id!}">
+                                    <img width="70" height="70" src="${indexArticles[2].imgUrl!}" alt="">
                                 </a>
                             </div>
                             <div class="block-desc">
                                 <div class="desc-tilte">
-                                    <a href="http://${host}/article/${lastArticles[2].id!}"> <h4><span class="table-list-name"> ${lastArticles[2].title!}</span></h4></a>
+                                    <a href="http://${host}/article/${indexArticles[2].id!}"> <h4><span class="table-list-name"> ${indexArticles[2].title!}</span></h4></a>
                                 </div>
                                 <div class="desc-data">
-                                    <span class="block-time">${lastArticles[2].addTime?datetime!}</span>
+                                    <span class="block-time">${indexArticles[2].addTime?datetime!}</span>
                                 </div>
                                 <div style="clear:both"></div>
                             </div>
@@ -184,16 +88,16 @@
                         </div>
                         <div class="table-block">
                             <div class="block-img">
-                                <a href="http://${host}/article/${lastArticles[3].id!}">
-                                    <img width="100" height="70" src="${lastArticles[3].imgUrl!}" alt="">
+                                <a href="http://${host}/article/${indexArticles[3].id!}">
+                                    <img width="70" height="70" src="${indexArticles[3].imgUrl!}" alt="">
                                 </a>
                             </div>
                             <div class="block-desc">
                                 <div class="desc-tilte">
-                                    <a href="http://${host}/article/${lastArticles[3].id!}"><h4> <span class="table-list-name">${lastArticles[3].title!}</span></h4></a>
+                                    <a href="http://${host}/article/${indexArticles[3].id!}"><h4> <span class="table-list-name">${indexArticles[3].title!}</span></h4></a>
                                 </div>
                                 <div class="desc-data">
-                                    <span class="block-time">${lastArticles[3].addTime?datetime!}</span>
+                                    <span class="block-time">${indexArticles[3].addTime?datetime!}</span>
                                 </div>
                                 <div style="clear:both"></div>
                             </div>
@@ -201,16 +105,16 @@
                         </div>
                         <div class="table-block">
                             <div class="block-img">
-                                <a href="http://${host}/article/${lastArticles[4].id!}">
-                                    <img width="100" height="70" src="${lastArticles[4].imgUrl!}" alt="">
+                                <a href="http://${host}/article/${indexArticles[4].id!}">
+                                    <img width="70" height="70" src="${indexArticles[4].imgUrl!}" alt="">
                                 </a>
                             </div>
                             <div class="block-desc">
                                 <div class="desc-tilte">
-                                    <a href="http://${host}/article/${lastArticles[4].id!}"> <h4> <span class="table-list-name"> ${lastArticles[4].title!}</span></h4></a>
+                                    <a href="http://${host}/article/${indexArticles[4].id!}"> <h4> <span class="table-list-name"> ${indexArticles[4].title!}</span></h4></a>
                                 </div>
                                 <div class="desc-data">
-                                    <span class="block-time">${lastArticles[4].addTime?datetime!}</span>
+                                    <span class="block-time">${indexArticles[4].addTime?datetime!}</span>
                                 </div>
                                 <div style="clear:both"></div>
                             </div>
@@ -359,17 +263,17 @@
                     <div>
                         <div class="table-three-image">
                             <a href="http://${host}/article/${indexArticles[10].id!}">
-                                <img alt="" width="218" height="150" src="${indexArticles[10].imgUrl!}">
+                                <img alt="" width="210" height="150" src="${indexArticles[10].imgUrl!}">
                             </a>
                         </div>
                         <div class="table-three-image">
                             <a href="http://${host}/article/${indexArticles[11].id!}">
-                                <img alt="" width="218" height="150" src="${indexArticles[11].imgUrl!}">
+                                <img alt="" width="210" height="150" src="${indexArticles[11].imgUrl!}">
                             </a>
                         </div>
                         <div class="table-three-image">
                             <a href="http://${host}/article/${indexArticles[12].id!}">
-                                <img alt="" width="218" height="150" src="${indexArticles[12].imgUrl!}">
+                                <img alt="" width="210" height="150" src="${indexArticles[12].imgUrl!}">
                             </a>
                         </div>
                         <div style="clear:both"></div>
@@ -384,18 +288,23 @@
             <div class="sidebar-one">
                 <div class="table-right-list black-bottom">
                     <div class="table-right-list-title black-background">
-                        视觉导读
+                        杂文推荐
                     </div>
                     <div style="clear:both"></div>
                 </div>
+                <div class="article-list">
 
-                <div class="table-right-list-img">
-                    <a href="http://${host}/article/${indexArticles[13].id!}">
-                        <img alt=""  width="324px" height="235px" src="${indexArticles[12].imgUrl!}">
-                    </a>
+                    <#list lastArticles as l>
+                        <div class="list-item">
+                            <p>
+                                <span class="num">${l_index}</span>
+                                <a href="http://${host}/article/${l.id!}" title="${l.title!}">${l.title!}</a>
+                            </p>
+
+                        </div>
+                    </#list>
                 </div>
                 <div style="clear:both"></div>
-
             </div>
             <div class="sidebar-one">
                 <div class="table-right-list black-bottom">

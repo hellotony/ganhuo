@@ -22,8 +22,8 @@ import java.util.List;
  */
 public class SpiderUtil {
 
-    public static void main(String[] args) {
-    }
+//    public static void main(String[] args) {
+//    }
 
     public static String doGet(String urlStr)  {
         URL url;

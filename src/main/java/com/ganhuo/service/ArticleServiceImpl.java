@@ -8,6 +8,7 @@ import com.ganhuo.service.client.ArticleService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -142,6 +143,39 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public void saveSpiderText(Article article) {
         articleMapper.saveSpiderText(article);
+    }
+
+    @Override
+    public List<Article> getSpiderArticle(int i) {
+        return articleMapper.getSpiderArticle(i);
+    }
+
+    @Override
+    public void insert(List<Article> articles) {
+        for(Article ar:articles){
+            ar.setType(4);
+            articleMapper.insert(ar);
+            ArticleDesc a = new ArticleDesc();
+            a.setReadTimes(0);
+            a.setDelFlag(0);
+            a.setAddTime(new Date());
+            a.setUpdateTime(new Date());
+            a.setCommend(0);
+            a.setDescription(ar.getDescription());
+            a.setImgUrl(ar.getImgUrl());
+            a.setTitle(ar.getTitle());
+            a.setType(ar.getType());
+            articleDescMapper.insert(a);
+        }
+    }
+
+    @Override
+    public void deleteSpiderArticle(List<Article> articles) {
+        List<Integer> ids = new ArrayList<>();
+        for(Article ar:articles){
+            ids.add(ar.getId());
+        }
+        articleMapper.deleteSpiderArticle(ids);
     }
 
 

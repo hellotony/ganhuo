@@ -40,7 +40,7 @@ public class ModuleController {
     public ModelAndView module(@PathVariable("typeId") Integer typeId,@RequestHeader("Host") String Host) {
         List<ArticleDesc> articleList = articleDescService.getArticleListByType(typeId);
         List<Module> modules = moduleService.getModuleList();
-        List<ArticleDesc> lastArticles = articleDescService.getLastArticles(5);
+        List<ArticleDesc> lastArticles = articleDescService.getLastArticles(10);
         List<Comment> comments = commentService.getRecentComments(5);
         Module module = new Module();
         for(Module m:modules){

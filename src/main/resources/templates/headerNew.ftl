@@ -3,8 +3,9 @@
         <div class="h-top">
             <div class="h-top-left">
                 <a href="http://${host}/" title="">
-                    <img src="http://demo.tagdiv.com/newspaper/wp-content/uploads/2016/01/logo-header.png">
+                    <img src="http://ocgkatm4e.bkt.clouddn.com/logo.png">
                 </a>
+                <div class="web-title"><a href="http://${host}/" title="干货网">干货网</a></div>
             </div>
             <#--<div class="h-top-right">-->
                 <#--<a href="http://${host}/" title="">-->

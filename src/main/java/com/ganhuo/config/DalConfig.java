@@ -71,7 +71,6 @@ public class DalConfig {
         Properties properties = new Properties();
         properties.put("config.decrypt", "true");
         druidDataSource.setConnectProperties(properties);
-
         StatFilter statFilter = new StatFilter();
         statFilter.setSlowSqlMillis(10000);//10s。。慢
         statFilter.setMergeSql(true);

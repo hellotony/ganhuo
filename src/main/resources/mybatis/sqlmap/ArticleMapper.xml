@@ -50,10 +50,11 @@
 			update_time
 	</sql>
 
-	<insert id="insert" parameterType="com.ganhuo.model.domain.Article"
-			useGeneratedKeys="true" keyProperty="id">
+	<insert id="insert" parameterType="com.ganhuo.model.domain.Article">
 		insert into article
 		<include refid="setAllColumns"/>
+		ON DUPLICATE KEY UPDATE read_times = read_times +1;
+
 	</insert>
 
 	<update id="updateArticle">
@@ -120,6 +121,20 @@
 	<insert id="saveSpiderText" parameterType="com.ganhuo.model.domain.Article">
 		insert into article_copy(title,content)values(${title},${content});
 	</insert>
+
+
+	<select id="getSpiderArticle" resultMap="ArticleMap">
+		select <include refid="selectAllColumns"/>
+		from article_copy order by id limit #{count};
+	</select>
+
+	<delete id="deleteSpiderArticle" parameterType="java.util.List">
+		delete 	from article_copy
+		where id in
+		<foreach item="param" index="index" collection="list" open="(" separator="," close=")">
+			#{param}
+		</foreach>
+	</delete>
 
 
 </mapper>

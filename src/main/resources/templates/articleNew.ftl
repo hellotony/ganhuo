@@ -39,17 +39,17 @@
                 <div>
                     <div class="table-three-image">
                         <a href="http://${host}/article/${indexArticles[10].id!}">
-                            <img alt="" width="218" height="150" src="${indexArticles[10].imgUrl!}">
+                            <img alt="" width="213" height="150" src="${indexArticles[10].imgUrl!}">
                         </a>
                     </div>
                     <div class="table-three-image">
                         <a href="http://${host}/article/${indexArticles[11].id!}">
-                            <img alt="" width="218" height="150" src="${indexArticles[11].imgUrl!}">
+                            <img alt="" width="213" height="150" src="${indexArticles[11].imgUrl!}">
                         </a>
                     </div>
                     <div class="table-three-image">
                         <a href="http://${host}/article/${indexArticles[12].id!}">
-                            <img alt="" width="218" height="150" src="${indexArticles[12].imgUrl!}">
+                            <img alt="" width="213" height="150" src="${indexArticles[12].imgUrl!}">
                         </a>
                     </div>
                     <div style="clear:both"></div>
@@ -93,14 +93,14 @@
         <div class="mustReadContainer">
             <div class="table-right-list black-bottom">
                 <div class="table-right-list-title black-background">
-                    最热推荐
+                    相关推荐
                 </div>
                 <div style="clear:both"></div>
             </div>
             <div class="table-one-right" id="img-one">
                 <div class="table-one-content-left-image">
                     <a href="http://${host}/article/${indexArticles[10].id!}">
-                    <img alt="干货网" width="324" height="235" src="${indexArticles[10].imgUrl!}">
+                    <img alt="干货网" width="300" height="225" src="${indexArticles[10].imgUrl!}">
                     </a>
                 </div>
                 <div class="table-one-title">

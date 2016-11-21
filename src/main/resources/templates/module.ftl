@@ -19,7 +19,7 @@
             <#list articles as l>
                 <div class="item">
                     <a href="http://${host}/article/${l.id!}" title="${l.title!}">
-                        <img width="324" height="160" src="${l.imgUrl}">
+                        <img width="324" height="160" src="${l.imgUrl!}">
                     </a>
                     <h3 class="title-container"><a href="http://${host}/article/${l.id!}" title="${l.title!}" class="item-title">${l.title!}</a></h3>
                     <div>
@@ -39,37 +39,59 @@
     </div>
     <div class="slidebar">
 
+        <#--<div class="sidebar-one">-->
+            <#--<div class="table-right-list black-bottom">-->
+                <#--<div class="table-right-list-title black-background">-->
+                    <#--最热推荐-->
+                <#--</div>-->
+                <#--<div style="clear:both"></div>-->
+            <#--</div>-->
+
+            <#--<div class="talbe-one-content-right">-->
+
+                <#--<#list lastArticles as l>-->
+                <#--<div class="table-block">-->
+                    <#--<div class="block-img">-->
+                        <#--<a href="http://${host}/article/${l.id!}">-->
+                            <#--<img width="70" height="70" src="${l.imgUrl!}" alt="${l.title!}">-->
+                        <#--</a>-->
+                    <#--</div>-->
+                    <#--<div class="block-desc">-->
+                        <#--<div class="desc-tilte">-->
+                            <#--<a href="http://${host}/article/${l.id!}"><h4><span class="table-list-name">${l.title!}</span></h4></a>-->
+                        <#--</div>-->
+                        <#--<div class="desc-data">-->
+                            <#--<span class="block-time">${l.addTime?datetime!}</span>-->
+                        <#--</div>-->
+                        <#--<div style="clear:both"></div>-->
+                    <#--</div>-->
+                    <#--<div style="clear:both"></div>-->
+                <#--</div>-->
+                <#--</#list>-->
+                <#--<div style="clear:both"></div>-->
+            <#--</div>-->
+        <#--</div>-->
+
         <div class="sidebar-one">
             <div class="table-right-list black-bottom">
                 <div class="table-right-list-title black-background">
-                    最热推荐
+                    杂文推荐
                 </div>
                 <div style="clear:both"></div>
             </div>
+            <div class="article-list">
 
-            <div class="talbe-one-content-right">
+            <#list lastArticles as l>
+                <div class="list-item">
+                    <p>
+                        <span class="num">${l_index}</span>
+                        <a href="http://${host}/article/${l.id!}" title="${l.title!}">${l.title!}</a>
+                    </p>
 
-                <#list lastArticles as l>
-                <div class="table-block">
-                    <div class="block-img">
-                        <a href="http://${host}/article/${l.id!}">
-                            <img width="100" height="70" src="${l.imgUrl!}" alt="${l.title!}">
-                        </a>
-                    </div>
-                    <div class="block-desc">
-                        <div class="desc-tilte">
-                            <a href="http://${host}/article/${l.id!}"><h4><span class="table-list-name">${l.title!}</span></h4></a>
-                        </div>
-                        <div class="desc-data">
-                            <span class="block-time">${l.addTime?datetime!}</span>
-                        </div>
-                        <div style="clear:both"></div>
-                    </div>
-                    <div style="clear:both"></div>
                 </div>
-                </#list>
-                <div style="clear:both"></div>
+            </#list>
             </div>
+            <div style="clear:both"></div>
         </div>
 
         <div class="sidebar-one">
@@ -88,7 +110,6 @@
 
 
         </div>
-
     </div>
     <div style="clear:both"></div>
 </div>

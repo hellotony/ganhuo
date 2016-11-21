@@ -45,7 +45,7 @@ public class IndexController {
         ModelAndView modelAndView = new ModelAndView();
         List<Module> modules = moduleService.getModuleList();
         List<ArticleDesc> indexArticles = articleDescService.getIndexArticle();
-        List<ArticleDesc> lastArticles = articleDescService.getLastArticles(5);
+        List<ArticleDesc> lastArticles = articleDescService.getLastArticles(10);
         List<Comment> comments = commentService.getRecentComments(5);
 
         modelAndView.addObject("lastArticles",lastArticles);
@@ -128,6 +128,14 @@ public class IndexController {
         ModelAndView modelAndView = new ModelAndView();
     }
 
+    @RequestMapping("/addSpiderArticle")
+    public void addSpiderArticle(@RequestHeader("Host") String Host){
+        List<Article> articles = articleService.getSpiderArticle(10);
+        articleService.insert(articles);
+        articleService.deleteSpiderArticle(articles);
+
+    }
+
     @RequestMapping("/uploadToken")
     public Tocken uploadToken(){
         Auth auth = Auth.create("Cb1t1_u_nnZQossAwz5hUeun-FRwvWupLze5A-yH","3gitOL1vKTA1ozChmwGV_U_Qa9GcPvJUAiuYTViI");
@@ -135,6 +143,7 @@ public class IndexController {
         tocken.setUptoken(auth.uploadToken("ganhuo"));
         return tocken;
     }
+
 
 //    @RequestMapping("/404")
 //    public ModelAndView notFoudError(@RequestHeader("Host") String Host){
@@ -156,6 +165,8 @@ public class IndexController {
         modelAndView.setViewName(name);
         return modelAndView;
     }
+
+
 
 
 }

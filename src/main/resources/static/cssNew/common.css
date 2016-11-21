@@ -62,13 +62,13 @@ li{
 .header {
     width: 100%;
 /*    width: 500px;*/
-    height: 170px;
+    height: 130px;
 /*    border: 1px solid #333333;*/
     box-shadow: 0px 1px 3px rgba(0,0,0,0.33);
 }
 
 .h-inner {
-    width: 1100px;
+    width: 1000px;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -85,6 +85,7 @@ li{
 /*    height: 100%;*/
     height: 50px;
     position: relative;
+    margin-top: -41px;
 }
 
 .h-top-left {
@@ -143,7 +144,7 @@ li{
 /*底部样式*/
 
 .footer-container {
-    width: 1100px;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 50px;
@@ -173,4 +174,14 @@ li{
     line-height: 20px;
     font-weight: 500;
     color: white;
+}
+
+.web-title {
+    font-size: 22px;
+    padding-left: 20px;
+    padding-top: 7px;
+    padding-bottom: 19px;
+    /* margin-top: 4px; */
+    display: block;
+    float: right;
 }
