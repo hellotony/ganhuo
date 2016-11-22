@@ -51,6 +51,7 @@
 			useGeneratedKeys="true" keyProperty="id">
 		insert into article_desc
 		<include refid="setAllColumns"/>
+		ON DUPLICATE KEY UPDATE read_times = read_times +1;
 	</insert>
 
 	<update id="updateArticle">

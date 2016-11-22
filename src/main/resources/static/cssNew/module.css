@@ -117,6 +117,7 @@ a{
 .table-container {
     width: 700px;
     float: left;
+    margin-top:-15px;
 }
 
 .table-block {
@@ -181,4 +182,72 @@ a{
     text-decoration: none;
     color: #333;
     font-weight: normal;
+}
+
+.table-item{
+    font-size: 12px;
+    border-bottom: 1px solid #eaecef;
+    position: relative;
+    padding-bottom: 25px;
+    width: 670px;
+}
+.table-item h3 {
+    font-weight: 700;
+    font-size: 100%;
+    display: block;
+
+}
+
+.table-item-pic{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    height: 120px;
+    display: block;
+}
+.table-item-pic img{
+    width: 200px;
+    height: 120px;
+}
+
+.table-item h3 a {
+    color: rgb(38, 38, 39);
+    font: 800 20px/29px 微软雅黑;
+}
+
+.public-icon-unique{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 3px;
+    margin-top: 5px;
+    line-height: 18px;
+
+    display: inline-block;
+    width: 32px;
+    height: 17px;
+    font: 700 12px/17px normal;
+    font-family: inherit;
+    color: #e94c3d;
+    border: 1px solid #e94c3d;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.item-left{
+    width: 200px;
+    height: 120px;
+    float: left;
+}
+
+.item-right{
+    width: 450px;
+    float: left;
+    margin-left: 20px;
+}
+
+.table-item-desc{
+    color: #606a77;
+    font-size: 15px;
+    line-height: 24px;
+    overflow: hidden;
 }

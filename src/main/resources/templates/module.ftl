@@ -14,17 +14,47 @@
 
 <div class="content">
     <div class="table-container">
+        <div class="breadcrumb">
+            <a href="http://${host}/"> 首页</a> > <a href="http://${host}/module/${module.id}">${module.name!}</a>
+        </div>
         <div class="main">
-
+            <#--<#list articles as l>-->
+                <#--<div class="item">-->
+                    <#--<a href="http://${host}/article/${l.id!}" title="${l.title!}">-->
+                        <#--<img width="324" height="160" src="${l.imgUrl!}">-->
+                    <#--</a>-->
+                    <#--<h3 class="title-container"><a href="http://${host}/article/${l.id!}" title="${l.title!}" class="item-title">${l.title!}</a></h3>-->
+                    <#--<div>-->
+                        <#--<span class="table-author">蜗牛快跑</span>     <span class="talbe-add-time">| ${l.addTime?datetime!}</span>-->
+                    <#--</div>-->
+                <#--</div>-->
+            <#--</#list>-->
+            <#--<#list articles as l>-->
+                <#--<div class="item">-->
+                    <#--<a href="http://${host}/article/${l.id!}" title="${l.title!}">-->
+                        <#--<img width="324" height="160" src="${l.imgUrl!}">-->
+                    <#--</a>-->
+                    <#--<h3 class="title-container"><a href="http://${host}/article/${l.id!}" title="${l.title!}" class="item-title">${l.title!}</a></h3>-->
+                    <#--<div>-->
+                        <#--<span class="table-author">蜗牛快跑</span>     <span class="talbe-add-time">| ${l.addTime?datetime!}</span>-->
+                    <#--</div>-->
+                <#--</div>-->
+            <#--</#list>-->
             <#list articles as l>
-                <div class="item">
-                    <a href="http://${host}/article/${l.id!}" title="${l.title!}">
-                        <img width="324" height="160" src="${l.imgUrl!}">
-                    </a>
-                    <h3 class="title-container"><a href="http://${host}/article/${l.id!}" title="${l.title!}" class="item-title">${l.title!}</a></h3>
-                    <div>
-                        <span class="table-author">蜗牛快跑</span>     <span class="talbe-add-time">| ${l.addTime?datetime!}</span>
+                <div class="table-item">
+                    <div class="item-left">
+                        <p class="table-item-pic">
+                            <a herf="ttp://${host}/article/${l.id!}"><img src="${l.imgUrl!}"/></a>
+                        </p>
                     </div>
+                    <div class="item-right">
+                        <h3>
+                            <a href="http://${host}/article/${l.id!}" title="${l.title!}">${l.title!}</a>
+                            <i class="public-icon-unique">干货</i>
+                        </h3>
+                        <p class="table-item-desc">${l.description!}</p>
+                    </div>
+                    <div style="clear:both"></div>
                 </div>
             </#list>
 
