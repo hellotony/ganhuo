@@ -178,5 +178,10 @@ public class ArticleServiceImpl implements ArticleService {
         articleMapper.deleteSpiderArticle(ids);
     }
 
+    @Override
+    public ArticleDesc getNextArticleById(Long articleId) {
+        return articleDescMapper.getNextArticleById(articleId);
+    }
+
 
 }

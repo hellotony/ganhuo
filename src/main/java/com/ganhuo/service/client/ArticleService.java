@@ -128,4 +128,12 @@ public interface ArticleService {
      * @param articles
      */
     void deleteSpiderArticle(List<Article> articles);
+
+
+    /**
+     * 获取当前文章的下一篇文章
+     * @param articleId
+     * @return
+     */
+    ArticleDesc getNextArticleById(Long articleId);
 }

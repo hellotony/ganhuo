@@ -233,7 +233,9 @@ input:focus,textarea:focus{
 
 
 .articleInner{
-    width:665px;
+    width:650px;
+    margin-bottom: 80px;
+
 }
 
 .articleHeader{

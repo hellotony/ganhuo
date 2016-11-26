@@ -19,6 +19,12 @@ public class ArticleDesc extends BaseEntity{
     @Column(name="img_url",description = "主题图片 链接")
     private String imgUrl;
 
+    @Column(name="index_url",description = "首页图片 链接")
+    private String indexUrl;
+
+    @Column(name="module_url",description = "模块页图片 链接")
+    private String moduleUrl;
+
     @Column(name = "type",description = "文章类型")
     private Integer type;
 
@@ -85,5 +91,21 @@ public class ArticleDesc extends BaseEntity{
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public String getIndexUrl() {
+        return indexUrl;
+    }
+
+    public void setIndexUrl(String indexUrl) {
+        this.indexUrl = indexUrl;
+    }
+
+    public String getModuleUrl() {
+        return moduleUrl;
+    }
+
+    public void setModuleUrl(String moduleUrl) {
+        this.moduleUrl = moduleUrl;
     }
 }

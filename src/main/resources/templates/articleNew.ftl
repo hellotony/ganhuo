@@ -99,19 +99,19 @@
             </div>
             <div class="table-one-right" id="img-one">
                 <div class="table-one-content-left-image">
-                    <a href="http://${host}/article/${indexArticles[10].id!}">
-                    <img alt="干货网" width="300" height="225" src="${indexArticles[10].imgUrl!}">
+                    <a href="http://${host}/article/${nexArticle.id!}">
+                    <img alt="干货网" width="300" height="225" src="${nexArticle.imgUrl!}">
                     </a>
                 </div>
                 <div class="table-one-title">
-                    <a href="http://${host}/article/${indexArticles[10].id!}" style="">${indexArticles[10].title!}</a>
+                    <a href="http://${host}/article/${nexArticle.id!}" style="">${nexArticle.title!}</a>
                 </div>
                 <div>
-                    <span class="table-author">蜗牛快跑</span>     <span class="talbe-add-time">| ${indexArticles[10].addTime?datetime!}</span>
+                    <span class="table-author">蜗牛快跑</span>     <span class="talbe-add-time">| ${nexArticle.addTime?datetime!}</span>
                 </div>
                 <div class="table-desc">
                         <span class="table-article-description">
-                        ${indexArticles[10].description!}
+                        ${nexArticle.description!}
                         </span>
                 </div>
             </div>

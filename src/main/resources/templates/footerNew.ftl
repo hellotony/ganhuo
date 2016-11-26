@@ -1,9 +1,19 @@
 <div class="footer">
     <div class="footer-container">
-        <div class="footor-logo">
-            <a href="http://${host}/">
-                <img alt="" src="http://demo.tagdiv.com/newspaper/wp-content/uploads/2016/01/logo-white.png">
-            </a>
+        <#--<div class="footor-logo">-->
+            <#--<a href="http://${host}/">-->
+                <#--<img alt="" src="http://demo.tagdiv.com/newspaper/wp-content/uploads/2016/01/logo-white.png">-->
+            <#--</a>-->
+        <#--</div>-->
+        <div class="aboutus">
+            <div class="block-title">
+                友情链接
+            </div>
+            <div class="about-us-info">
+                <span>
+
+                </span>
+            </div>
         </div>
         <div class="aboutus">
             <div class="block-title">

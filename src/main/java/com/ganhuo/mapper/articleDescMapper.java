@@ -55,4 +55,11 @@ public interface ArticleDescMapper {
      * @return
      */
     List<ArticleDesc> getSpiderUrl();
+
+    /**
+     * 获取下一篇文章
+     * @param articleId
+     * @return
+     */
+    ArticleDesc getNextArticleById(@Param("id")Long id);
 }
