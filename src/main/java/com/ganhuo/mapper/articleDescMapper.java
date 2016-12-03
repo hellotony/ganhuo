@@ -58,8 +58,14 @@ public interface ArticleDescMapper {
 
     /**
      * 获取下一篇文章
-     * @param articleId
+     * @param
      * @return
      */
     ArticleDesc getNextArticleById(@Param("id")Long id);
+
+    /**
+     * 获取友情连接
+     * @return
+     */
+    List<ArticleDesc> getLinks();
 }

@@ -4,6 +4,7 @@ import com.ganhuo.model.domain.Article;
 import com.ganhuo.model.domain.ArticleDesc;
 import com.ganhuo.model.domain.Comment;
 import com.ganhuo.model.domain.Module;
+import com.ganhuo.service.client.ArticleDescService;
 import com.ganhuo.service.client.ArticleService;
 import com.ganhuo.service.client.CommentService;
 import com.ganhuo.service.client.ModuleService;
@@ -28,6 +29,9 @@ public class ArticleController {
 
     @Resource
     private CommentService commentService;
+
+    @Resource
+    private ArticleDescService articleDescService;
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String add(String content,String title,int type,String topicImageUrl,String articleDesc){
@@ -61,6 +65,8 @@ public class ArticleController {
         Module module = modules.get(article.getType()-1);
         article.setReadTimes(article.getReadTimes()+1);
         articleService.updateReadTime(article);
+        List<ArticleDesc> links = articleDescService.getLinks();
+        m.addObject("links",links);
         m.addObject("modules",modules);
         m.addObject("module",module);
         m.addObject("article",article);

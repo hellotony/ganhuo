@@ -154,6 +154,10 @@
 	<select id="getNextArticleById" parameterType="Long" resultMap="articleDescMap" >
 		select * from article_desc where id > #{id} limit 1;
 	</select>
+	
+	<select id="getLinks" resultMap="articleDescMap">
+		select * from link;
+	</select>
 
 
 </mapper>

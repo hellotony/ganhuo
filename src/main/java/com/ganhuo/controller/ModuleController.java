@@ -48,7 +48,9 @@ public class ModuleController {
                 module = m;
             }
         }
+        List<ArticleDesc> links = articleDescService.getLinks();
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("links",links);
         modelAndView.addObject("module",module);
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("articles", articleList);

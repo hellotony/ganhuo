@@ -47,7 +47,8 @@ public class IndexController {
         List<ArticleDesc> indexArticles = articleDescService.getIndexArticle();
         List<ArticleDesc> lastArticles = articleDescService.getLastArticles(10);
         List<Comment> comments = commentService.getRecentComments(5);
-
+        List<ArticleDesc> links = articleDescService.getLinks();
+        modelAndView.addObject("links",links);
         modelAndView.addObject("lastArticles",lastArticles);
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("comments",comments);
@@ -64,6 +65,8 @@ public class IndexController {
         modelAndView.addObject("articles", articleList);
         modelAndView.addObject("host",Host);
         modelAndView.setViewName("/content");
+        List<ArticleDesc> links = articleDescService.getLinks();
+        modelAndView.addObject("links",links);
         return modelAndView;
     }
 
@@ -72,6 +75,8 @@ public class IndexController {
         List<ArticleDesc> articleList = articleDescService.getAllArticle();
         List<Module> modules = moduleService.getModuleList();
         ModelAndView modelAndView = new ModelAndView();
+        List<ArticleDesc> links = articleDescService.getLinks();
+        modelAndView.addObject("links",links);
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("articles", articleList);
         modelAndView.addObject("host",Host);
@@ -96,6 +101,8 @@ public class IndexController {
         List<Module> modules = moduleService.getModuleList();
         ModelAndView modelAndView = new ModelAndView();
         List<ArticleDesc> recentArticles = articleDescService.getRecentArticles();
+        List<ArticleDesc> links = articleDescService.getLinks();
+        modelAndView.addObject("links",links);
         modelAndView.addObject("recentArticles",recentArticles);
         modelAndView.addObject("modules",modules);
         modelAndView.addObject("article",article);

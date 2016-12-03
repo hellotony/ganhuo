@@ -5,14 +5,15 @@
                 <#--<img alt="" src="http://demo.tagdiv.com/newspaper/wp-content/uploads/2016/01/logo-white.png">-->
             <#--</a>-->
         <#--</div>-->
-        <div class="aboutus">
+        <div class="link">
             <div class="block-title">
                 友情链接
             </div>
             <div class="about-us-info">
-                <span>
+                <#list links as l>
+                    <a href="${l.indexUrl}"><span>${l.title}</span></a>
+                </#list>
 
-                </span>
             </div>
         </div>
         <div class="aboutus">

@@ -122,4 +122,9 @@ public interface ArticleDescService {
      */
     List<ArticleDesc> getSpirderUrl();
 
+    /**
+     * 获取 友情连接
+     * @return
+     */
+    List<ArticleDesc> getLinks();
 }

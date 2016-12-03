@@ -129,5 +129,10 @@ public class ArticleDescServiceImpl implements ArticleDescService {
         return articleDescMapper.getSpiderUrl();
     }
 
+    @Override
+    public List<ArticleDesc> getLinks() {
+        return articleDescMapper.getLinks();
+    }
+
 
 }
