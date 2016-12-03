@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ganhuo.mapper.BaseMapper">
+
+    <resultMap id="userMap" type="com.ganhuo.model.domain.User">
+        <result column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="mobile" property="mobile" />
+        <result column="email" property="email" />
+        <result column="add_time" property="addTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+
+    <sql id="setAllColumns">
+        <set>
+            <if test="username != null">username = #{username},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="mobile != null">mobile = #{mobile},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="addTime != null">add_time = #{addTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime}</if>
+        </set>
+    </sql>
+
+    <sql id="selectAllUserColumns">
+        id,
+        username,
+        password,
+        mobile,
+        email,
+        add_time,
+        update_time
+    </sql>
+
+    <select id="selectUserCountByName" resultType="int" parameterType="String">
+      SELECT count(1) from user where username = #{username};
+    </select>
+
+    <select id="addUser"  parameterType="com.ganhuo.model.domain.User">
+        insert into user
+        <include refid="setAllColumns"></include>
+    </select>
+
+
+
+
+
+</mapper>

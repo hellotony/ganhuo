@@ -19,8 +19,6 @@ import java.util.List;
 public class SpiderServiceImpl implements SpiderService {
 
 
-
-
     @Override
     public void getHtmlContent() {
         try {

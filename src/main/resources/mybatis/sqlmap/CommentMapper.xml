@@ -90,11 +90,6 @@
 		order by read_times desc;
 	</select>
 
-
-
-
-
-
 	<select id="getCommentsByArticleId" resultMap="commentMap">
 		SELECT <include refid="selectAllColumns"/>
 		from comment where article_id = #{articleId} and del_flag = 0;
