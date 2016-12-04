@@ -1,7 +1,7 @@
 package com.ganhuo.service;
 
-import com.ganhuo.mapper.ArticleMapper;
 import com.ganhuo.mapper.ArticleDescMapper;
+import com.ganhuo.mapper.ArticleMapper;
 import com.ganhuo.model.domain.Article;
 import com.ganhuo.model.domain.ArticleDesc;
 import com.ganhuo.service.client.ArticleService;

@@ -114,6 +114,8 @@ public class IndexController {
     @RequestMapping("/login")
     public ModelAndView login(@RequestHeader("Host") String Host){
         ModelAndView modelAndView = new ModelAndView();
+        List<ArticleDesc> links = articleDescService.getLinks();
+        modelAndView.addObject("links",links);
         return result(Host,"/login",modelAndView);
     }
 
