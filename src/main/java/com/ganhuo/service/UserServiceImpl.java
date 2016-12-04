@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService{
         user.setPassword(password);
         user.setAddTime(new Date());
         user.setUpdateTime(new Date());
-        baseMapper.insert(user);
+        baseMapper.addUser(user);
 
     }
 

@@ -1,5 +1,6 @@
 package com.ganhuo;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +23,7 @@ import java.util.Date;
 @SpringBootApplication
 //@Configuration
 @EnableAsync
+@MapperScan("com.ganhuo.mapper")
 //@EnableAutoConfiguration//启用自动配置
 public class Start extends SpringBootServletInitializer {
 

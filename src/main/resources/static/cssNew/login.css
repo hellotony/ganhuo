@@ -1,4 +1,10 @@
 
+a {
+    color: black;
+}
+a{
+    text-decoration: none;
+}
 .content {
     min-height: 800px;
     margin-left: auto;

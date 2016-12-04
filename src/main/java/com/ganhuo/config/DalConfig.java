@@ -8,6 +8,7 @@ import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,7 +25,8 @@ import java.util.List;
 import java.util.Properties;
 
 @Configuration
- @EnableTransactionManagement
+@EnableTransactionManagement
+//@MapperScan("com.ganhuo.mapper")
 public class DalConfig{
 
 

@@ -285,6 +285,14 @@
         </div>
 
         <div class="sidebar">
+            <div class="user-container">
+                <div class="user-background"></div>
+                <div class="user-icon">
+                    <img src="http://ocgkatm4e.bkt.clouddn.com/g.jpg">
+                </div>
+                <div class="user-name">倚楼听风雨</div>
+                <div style="clear:both"></div>
+            </div>
             <div class="sidebar-one">
                 <div class="table-right-list black-bottom">
                     <div class="table-right-list-title black-background">
