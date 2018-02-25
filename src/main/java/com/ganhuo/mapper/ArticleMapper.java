@@ -36,7 +36,7 @@ public interface ArticleMapper {
 
     void saveSpiderText(Article article);
 
-    List<Article> getSpiderArticle(@Param("count")int count);
+    List<Article> getSpiderArticle(@Param("count") int count);
 
     void deleteSpiderArticle(List<Integer> param);
 }

@@ -7,7 +7,6 @@ import com.ganhuo.model.domain.User;
  */
 public interface BaseMapper {
 
-
     void addUser(User user);
 
     int selectUserCountByName(String username);

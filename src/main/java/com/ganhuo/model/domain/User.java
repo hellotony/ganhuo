@@ -5,7 +5,7 @@ import com.ganhuo.model.domain.base.BaseEntity;
 /**
  * Created by sunzhiqiang on 2016/12/3.
  */
-public class User extends BaseEntity{
+public class User extends BaseEntity {
 
     private String username;
     private String password;

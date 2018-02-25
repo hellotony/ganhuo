@@ -5,9 +5,10 @@ import com.ganhuo.model.domain.ArticleDesc;
 import com.ganhuo.service.client.ArticleDescService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+
 import java.util.Date;
 import java.util.List;
+import javax.annotation.Resource;
 
 /**
  * Created by sunzhiqiang on 2016/8/26.
@@ -18,10 +19,9 @@ public class ArticleDescServiceImpl implements ArticleDescService {
     @Resource
     private ArticleDescMapper articleDescMapper;
 
-
     @Override
     public Integer add(String content, String title, int type, String topicImageUrl, String articleDesc) {
-        if(StringUtils.isBlank(content) || StringUtils.isBlank(title)){
+        if (StringUtils.isBlank(content) || StringUtils.isBlank(title)) {
             return 0;
         }
         ArticleDesc article = new ArticleDesc();
@@ -132,6 +132,5 @@ public class ArticleDescServiceImpl implements ArticleDescService {
     public List<ArticleDesc> getLinks() {
         return articleDescMapper.getLinks();
     }
-
 
 }

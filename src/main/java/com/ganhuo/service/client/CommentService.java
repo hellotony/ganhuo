@@ -10,14 +10,16 @@ import java.util.List;
 public interface CommentService {
     /**
      * 插入文章
+     *
      * @param content
      * @param topicImageUrl
-     *@param  @return
+     * @param @return
      */
     Integer add(String content, String title, int type, String topicImageUrl, String commentDesc);
 
     /**
      * 通过 id 获取文章
+     *
      * @param id
      * @return
      */
@@ -25,12 +27,14 @@ public interface CommentService {
 
     /**
      * 获取第一篇文章
+     *
      * @return
      */
     Comment getFirstComment();
 
     /**
      * 通过文章类型 获取对应的文章
+     *
      * @param typeId
      * @return
      */
@@ -38,18 +42,21 @@ public interface CommentService {
 
     /**
      * 获取最新的评论
+     *
      * @return
      */
     List<Comment> getRecentComments(int count);
 
     /**
      * 增加阅读次数
+     *
      * @param Comment
      */
     void updateReadTime(Comment Comment);
 
     /**
      * 获取最热门的 几篇文章
+     *
      * @param i
      * @return
      */
@@ -57,6 +64,7 @@ public interface CommentService {
 
     /**
      * 通过 module 获取 文章列表
+     *
      * @param param
      * @return
      */
@@ -64,6 +72,7 @@ public interface CommentService {
 
     /**
      * 获取所有的 文章
+     *
      * @return
      */
     List<Comment> getAllComment();
@@ -80,9 +89,9 @@ public interface CommentService {
      */
     Integer update(Integer id, String content, String title, String topicImageUrl, String commentDesc);
 
-
     /**
      * 插入一条 评论
+     *
      * @param articleId
      * @param username
      * @param content
@@ -90,9 +99,9 @@ public interface CommentService {
      */
     Integer insert(Integer articleId, String username, String content);
 
-
     /**
      * 通过 文章id 获取评论
+     *
      * @param articleId
      * @return
      */

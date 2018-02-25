@@ -1,6 +1,5 @@
 package com.ganhuo.service.client;
 
-import com.ganhuo.model.domain.Article;
 import com.ganhuo.model.domain.ArticleDesc;
 
 import java.util.List;
@@ -11,14 +10,16 @@ import java.util.List;
 public interface ArticleDescService {
     /**
      * 插入文章
+     *
      * @param content
      * @param topicImageUrl
-     *@param articleDesc @return
+     * @param articleDesc   @return
      */
     Integer add(String content, String title, int type, String topicImageUrl, String articleDesc);
 
     /**
      * 通过 id 获取文章
+     *
      * @param id
      * @return
      */
@@ -26,12 +27,14 @@ public interface ArticleDescService {
 
     /**
      * 获取第一篇文章
+     *
      * @return
      */
     ArticleDesc getFirstArticle();
 
     /**
      * 通过文章类型 获取对应的文章
+     *
      * @param typeId
      * @return
      */
@@ -39,18 +42,21 @@ public interface ArticleDescService {
 
     /**
      * 获取最新的文章
+     *
      * @return
      */
     List<ArticleDesc> getRecentArticles();
 
     /**
      * 增加阅读次数
+     *
      * @param article
      */
     void updateReadTime(ArticleDesc article);
 
     /**
      * 获取最热门的 几篇文章
+     *
      * @param i
      * @return
      */
@@ -58,6 +64,7 @@ public interface ArticleDescService {
 
     /**
      * 通过 module 获取 文章列表
+     *
      * @param param
      * @return
      */
@@ -65,6 +72,7 @@ public interface ArticleDescService {
 
     /**
      * 获取所有的 文章
+     *
      * @return
      */
     List<ArticleDesc> getAllArticle();
@@ -83,18 +91,21 @@ public interface ArticleDescService {
 
     /**
      * 评论数量+1
+     *
      * @param articleId
      */
     void updateCommentTimes(Integer articleId);
 
     /**
      * 获取最新创建的文章
+     *
      * @return
      */
     ArticleDesc getLastArticle();
 
     /**
      * 获取每个类别的  文章一篇
+     *
      * @return
      */
     List<ArticleDesc> getArticleGroup();
@@ -106,24 +117,28 @@ public interface ArticleDescService {
 
     /**
      * 获取最新的几篇文章
+     *
      * @return
      */
     List<ArticleDesc> getLastArticles(int count);
 
     /**
      * 报错 爬虫的内容
+     *
      * @param articleDescs
      */
     void addSpiderDesc(List<ArticleDesc> articleDescs);
 
     /**
      * 爬虫获取文章链接
+     *
      * @return
      */
     List<ArticleDesc> getSpirderUrl();
 
     /**
      * 获取 友情连接
+     *
      * @return
      */
     List<ArticleDesc> getLinks();

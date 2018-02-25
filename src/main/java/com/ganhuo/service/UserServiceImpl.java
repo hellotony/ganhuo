@@ -5,18 +5,17 @@ import com.ganhuo.model.domain.User;
 import com.ganhuo.service.client.UserService;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Date;
+import javax.annotation.Resource;
 
 /**
  * Created by sunzhiqiang on 2016/12/3.
  */
 @Service("userService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Resource
     private BaseMapper baseMapper;
-
 
     @Override
     public void add(String username, String email, String password) {
@@ -33,7 +32,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean checkUserName(String username) {
         int count = baseMapper.selectUserCountByName(username);
-        if(count == 0){
+        if (count == 0) {
             return true;
         }
         return false;

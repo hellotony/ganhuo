@@ -1,24 +1,23 @@
 package com.ganhuo.controller;
 
-import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import javax.websocket.server.PathParam;
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.UUID;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  * Created by sunzhiqiang on 2016/8/25.
@@ -36,7 +35,7 @@ public class FileUploadController {
         // myFileName是文件域的name属性值
         Part part = request.getPart("myFileName");
         // 文件类型限制
-        String[] allowedType = { "image/bmp", "image/gif", "image/jpeg", "image/png" };
+        String[] allowedType = {"image/bmp", "image/gif", "image/jpeg", "image/png"};
         boolean allowed = Arrays.asList(allowedType).contains(part.getContentType());
         if (!allowed) {
             response.getWriter().write("error|不支持的类型");
@@ -62,15 +61,15 @@ public class FileUploadController {
 
         // 返回图片的URL地址
         response.getWriter().write(request.getContextPath() + "/image/" + realName);
-}
+    }
 
     @RequestMapping("/file")
     @ResponseBody
-    public String fileUpload(@RequestParam("file") MultipartFile file,HttpServletResponse response){
+    public String fileUpload(@RequestParam("file") MultipartFile file, HttpServletResponse response) {
         String name = "";
         if (!file.isEmpty()) {
 
-            String[] allowedType = { "image/bmp", "image/gif", "image/jpeg", "image/png" };
+            String[] allowedType = {"image/bmp", "image/gif", "image/jpeg", "image/png"};
             boolean allowed = Arrays.asList(allowedType).contains(file.getContentType());
             if (!allowed) {
                 return "图片格式不对";
@@ -85,12 +84,12 @@ public class FileUploadController {
             String fileNameExtension = fi.substring(fi.indexOf("."), fi.length());
             SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
             String dataStr = format.format(new Date());
-            String fileName = "static/image/"+name+dataStr+fileNameExtension;
+            String fileName = "static/image/" + name + dataStr + fileNameExtension;
             System.out.println(fileName);
             try {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File(fileName)));
+                    new BufferedOutputStream(new FileOutputStream(new File(fileName)));
                 stream.write(bytes);
                 stream.close();
                 return "You successfully uploaded " + name + " into " + name + "-uploaded !";
@@ -101,10 +100,5 @@ public class FileUploadController {
             return "You failed to upload " + name + " because the file was empty.";
         }
     }
-
-
-
-
-
 
 }

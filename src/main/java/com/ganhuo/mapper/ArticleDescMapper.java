@@ -38,33 +38,37 @@ public interface ArticleDescMapper {
 
     /**
      * 获取最新的 几篇文章
+     *
      * @param count
      * @return
      */
-    List<ArticleDesc> getLastArticles(@Param("count")Integer count);
+    List<ArticleDesc> getLastArticles(@Param("count") Integer count);
 
     /**
      * 保存爬虫文章
+     *
      * @param articleDescs
      */
     void batchInsertSpider(List<ArticleDesc> articleDescs);
 
-
     /**
      * 获取爬虫保存的 链接
+     *
      * @return
      */
     List<ArticleDesc> getSpiderUrl();
 
     /**
      * 获取下一篇文章
+     *
      * @param
      * @return
      */
-    ArticleDesc getNextArticleById(@Param("id")Long id);
+    ArticleDesc getNextArticleById(@Param("id") Long id);
 
     /**
      * 获取友情连接
+     *
      * @return
      */
     List<ArticleDesc> getLinks();

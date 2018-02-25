@@ -6,13 +6,13 @@
 <mapper namespace="com.ganhuo.mapper.BaseMapper">
 
     <resultMap id="userMap" type="com.ganhuo.model.domain.User">
-        <result column="id" property="id" />
-        <result column="username" property="username" />
-        <result column="password" property="password" />
-        <result column="mobile" property="mobile" />
-        <result column="email" property="email" />
-        <result column="add_time" property="addTime" />
-        <result column="update_time" property="updateTime" />
+        <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="mobile" property="mobile"/>
+        <result column="email" property="email"/>
+        <result column="add_time" property="addTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
 
@@ -38,16 +38,13 @@
     </sql>
 
     <select id="selectUserCountByName" resultType="int" parameterType="String">
-      SELECT count(1) from user where username = #{username};
+        SELECT count(1) from user where username = #{username};
     </select>
 
-    <select id="addUser"  parameterType="com.ganhuo.model.domain.User">
+    <select id="addUser" parameterType="com.ganhuo.model.domain.User">
         insert into user
         <include refid="setAllColumns"></include>
     </select>
-
-
-
 
 
 </mapper>

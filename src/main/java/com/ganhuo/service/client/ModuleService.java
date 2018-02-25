@@ -1,6 +1,7 @@
 package com.ganhuo.service.client;
 
 import com.ganhuo.model.domain.Module;
+
 import java.util.List;
 
 /**
@@ -10,6 +11,7 @@ public interface ModuleService {
 
     /**
      * 获取模块信息
+     *
      * @return
      */
     List<Module> getModuleList();
@@ -21,6 +23,7 @@ public interface ModuleService {
 
     /**
      * 通过id 获取 类型
+     *
      * @param id
      * @return
      */

@@ -17,7 +17,7 @@ public class AgentUser extends BaseEntity {
 
     @Column(name = "mobile", description = "手机号")
     private String mobile;
-    
+
     @Column(name = "uid", description = "用户中心ID")
     private Long uid;
 
@@ -46,7 +46,7 @@ public class AgentUser extends BaseEntity {
 
     @Column(name = "enable_online_brokerage", description = "是否线上发佣")
     private boolean enableOnlineBrokerage;
-    
+
     @Column(name = "enable_login", description = "是否可以登陆")
     private boolean enableLogin;
 
@@ -54,22 +54,22 @@ public class AgentUser extends BaseEntity {
     private String promoCode;
 
     public Long getUid() {
-		return uid;
-	}
+        return uid;
+    }
 
-	public void setUid(Long uid) {
-		this.uid = uid;
-	}
+    public void setUid(Long uid) {
+        this.uid = uid;
+    }
 
-	public boolean isEnableLogin() {
-		return enableLogin;
-	}
+    public boolean isEnableLogin() {
+        return enableLogin;
+    }
 
-	public void setEnableLogin(boolean enableLogin) {
-		this.enableLogin = enableLogin;
-	}
+    public void setEnableLogin(boolean enableLogin) {
+        this.enableLogin = enableLogin;
+    }
 
-	public String getName() {
+    public String getName() {
         return name;
     }
 

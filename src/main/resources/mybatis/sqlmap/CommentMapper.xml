@@ -5,94 +5,102 @@
 
 <mapper namespace="com.ganhuo.mapper.CommentMapper">
 
-	<resultMap
-		type="com.ganhuo.model.domain.Comment"
-		id="commentMap">
-			<result column="id" property="id" />
-			<result column="article_id" property="articleId" />
-			<result column="username" property="username" />
-			<result column="content" property="content" />
-			<result column="del_flag" property="delFlag" />
-			<result column="add_time" property="addTime" />
-			<result column="update_time" property="updateTime" />
-	</resultMap>
-	
-	<sql id="setAllColumns">
-		<set>
-			<if test="articleId != null">article_id = #{articleId},</if>
-			<if test="username != null">username = #{username},</if>
-			<if test="content != null">content = #{content},</if>
-			<if test="delFlag != null">del_flag = #{delFlag},</if>
-			<if test="addTime != null">add_time = #{addTime},</if>
-			<if test="updateTime != null">update_time = #{updateTime}</if>
-		</set>
-	</sql>
+    <resultMap
+            type="com.ganhuo.model.domain.Comment"
+            id="commentMap">
+        <result column="id" property="id"/>
+        <result column="article_id" property="articleId"/>
+        <result column="username" property="username"/>
+        <result column="content" property="content"/>
+        <result column="del_flag" property="delFlag"/>
+        <result column="add_time" property="addTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
 
-	<sql id="selectAllColumns">
-			id,
-			article_id,
-			username,
-			content,
-			del_flag,
-			add_time,
-			update_time
-	</sql>
+    <sql id="setAllColumns">
+        <set>
+            <if test="articleId != null">article_id = #{articleId},</if>
+            <if test="username != null">username = #{username},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="addTime != null">add_time = #{addTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime}</if>
+        </set>
+    </sql>
 
-	<insert id="insert" parameterType="com.ganhuo.model.domain.Comment"
-			useGeneratedKeys="true" keyProperty="id">
-		insert into comment
-		<include refid="setAllColumns"/>
-	</insert>
+    <sql id="selectAllColumns">
+        id,
+        article_id,
+        username,
+        content,
+        del_flag,
+        add_time,
+        update_time
+    </sql>
 
-	<update id="updateComment">
-		update comment
-		<include refid="setAllColumns" />
-		where id = #{id}
-	</update>
+    <insert id="insert" parameterType="com.ganhuo.model.domain.Comment"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into comment
+        <include refid="setAllColumns"/>
+    </insert>
 
-	<select id="getCommentById" resultMap="commentMap">
-		SELECT <include refid="selectAllColumns"/>
-		from comment where id = #{id} and del_flag = 0;
-	</select>
+    <update id="updateComment">
+        update comment
+        <include refid="setAllColumns"/>
+        where id = #{id}
+    </update>
 
-	<select id="getAllComment" resultMap="commentMap">
-		SELECT <include refid="selectAllColumns"/>
-		from comment where del_flag = 0;
-	</select>
+    <select id="getCommentById" resultMap="commentMap">
+        SELECT
+        <include refid="selectAllColumns"/>
+        from comment where id = #{id} and del_flag = 0;
+    </select>
 
-	<select id="getFirstComment" resultMap="commentMap">
-		SELECT <include refid="selectAllColumns"/>
-		from comment ORDER BY id limit 1
-	</select>
+    <select id="getAllComment" resultMap="commentMap">
+        SELECT
+        <include refid="selectAllColumns"/>
+        from comment where del_flag = 0;
+    </select>
 
-	<select id="getCommentListByType" resultMap="commentMap" >
-		SELECT <include refid="selectAllColumns"/>
-		from comment where type= #{typeId} limit 9
-	</select>
+    <select id="getFirstComment" resultMap="commentMap">
+        SELECT
+        <include refid="selectAllColumns"/>
+        from comment ORDER BY id limit 1
+    </select>
 
-	<select id="getRecentComments" resultMap="commentMap" >
-		SELECT <include refid="selectAllColumns"/>
-		from comment order by add_time desc limit #{count};
-	</select>
+    <select id="getCommentListByType" resultMap="commentMap">
+        SELECT
+        <include refid="selectAllColumns"/>
+        from comment where type= #{typeId} limit 9
+    </select>
 
-	<select id="getMostHotComment" resultMap="commentMap" >
-		SELECT <include refid="selectAllColumns"/>
-		from comment order by read_times desc limit #{i};
-	</select>
+    <select id="getRecentComments" resultMap="commentMap">
+        SELECT
+        <include refid="selectAllColumns"/>
+        from comment order by add_time desc limit #{count};
+    </select>
 
-	<select id="getCommentByModule" resultMap="commentMap" >
-		SELECT <include refid="selectAllColumns"/>
-		from comment where type in
-		<foreach item="param" index="index" collection="list" open="(" separator="," close=")">
-			#{param}
-		</foreach>
-		and del_flag = 0
-		order by read_times desc;
-	</select>
+    <select id="getMostHotComment" resultMap="commentMap">
+        SELECT
+        <include refid="selectAllColumns"/>
+        from comment order by read_times desc limit #{i};
+    </select>
 
-	<select id="getCommentsByArticleId" resultMap="commentMap">
-		SELECT <include refid="selectAllColumns"/>
-		from comment where article_id = #{articleId} and del_flag = 0;
-	</select>
+    <select id="getCommentByModule" resultMap="commentMap">
+        SELECT
+        <include refid="selectAllColumns"/>
+        from comment where type in
+        <foreach item="param" index="index" collection="list" open="(" separator="," close=")">
+            #{param}
+        </foreach>
+        and del_flag = 0
+        order by read_times desc;
+    </select>
+
+    <select id="getCommentsByArticleId" resultMap="commentMap">
+        SELECT
+        <include refid="selectAllColumns"/>
+        from comment where article_id = #{articleId} and del_flag = 0;
+    </select>
 
 </mapper>

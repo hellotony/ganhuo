@@ -7,10 +7,11 @@ import com.ganhuo.model.domain.ArticleDesc;
 import com.ganhuo.service.client.ArticleService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.annotation.Resource;
 
 /**
  * Created by sunzhiqiang on 2016/8/26.
@@ -24,10 +25,9 @@ public class ArticleServiceImpl implements ArticleService {
     @Resource
     private ArticleDescMapper articleDescMapper;
 
-
     @Override
     public Integer add(String content, String title, int type, String topicImageUrl, String articleDesc) {
-        if(StringUtils.isBlank(content) || StringUtils.isBlank(title)){
+        if (StringUtils.isBlank(content) || StringUtils.isBlank(title)) {
             return 0;
         }
         Article article = new Article();
@@ -152,7 +152,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void insert(List<Article> articles) {
-        for(Article ar:articles){
+        for (Article ar : articles) {
             ar.setType(4);
             articleMapper.insert(ar);
             ArticleDesc a = new ArticleDesc();
@@ -172,7 +172,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public void deleteSpiderArticle(List<Article> articles) {
         List<Integer> ids = new ArrayList<>();
-        for(Article ar:articles){
+        for (Article ar : articles) {
             ids.add(ar.getId());
         }
         articleMapper.deleteSpiderArticle(ids);
@@ -182,6 +182,5 @@ public class ArticleServiceImpl implements ArticleService {
     public ArticleDesc getNextArticleById(Long articleId) {
         return articleDescMapper.getNextArticleById(articleId);
     }
-
 
 }

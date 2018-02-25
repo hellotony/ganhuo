@@ -7,8 +7,8 @@ package com.ganhuo.config;
 import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
+
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,15 +27,13 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 //@MapperScan("com.ganhuo.mapper")
-public class DalConfig{
-
+public class DalConfig {
 
     @Value(value = "classpath:mybatis/sqlmap/*.xml")
     private Resource[] mapperLocations;
 
     @Value(value = "classpath:mybatis/mybatis-config.xml")
     private Resource configLocation;
-
 
     @Bean(autowire = Autowire.BY_NAME)
     public SqlSessionFactoryBean sqlSessionFactory() {
@@ -89,7 +87,7 @@ public class DalConfig{
     }
 
     @Bean(autowire = Autowire.BY_NAME)
-    public TransactionTemplate transactionTemplateNew(){
+    public TransactionTemplate transactionTemplateNew() {
         TransactionTemplate template = new TransactionTemplate();
         template.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
         return template;

@@ -7,19 +7,19 @@ import com.ganhuo.model.domain.base.BaseEntity;
 /**
  * Created by sunzhiqiang on 2016/8/26.
  */
-@Table(name = "comment",description = "文章评论")
+@Table(name = "comment", description = "文章评论")
 public class Comment extends BaseEntity {
 
-    @Column(name = "article_id",description = "文章ID")
+    @Column(name = "article_id", description = "文章ID")
     private Integer articleId;
 
-    @Column(name="username",description = "用户名")
+    @Column(name = "username", description = "用户名")
     private String username;
 
-    @Column(name="content",description = "评论内容")
+    @Column(name = "content", description = "评论内容")
     private String content;
 
-    @Column(name = "del_flag",description = "删除状态，1：已删除，0：未删除")
+    @Column(name = "del_flag", description = "删除状态，1：已删除，0：未删除")
     private Integer delFlag;
 
     public Integer getArticleId() {

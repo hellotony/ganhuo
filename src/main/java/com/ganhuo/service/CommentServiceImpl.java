@@ -6,9 +6,9 @@ import com.ganhuo.service.client.CommentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import javax.annotation.Resource;
 
 /**
  * Created by sunzhiqiang on 2016/8/26.
@@ -16,14 +16,12 @@ import java.util.List;
 @Service("commentService")
 public class CommentServiceImpl implements CommentService {
 
-    
     @Resource
     private CommentMapper commentMapper;
 
-
     @Override
     public Integer add(String content, String title, int type, String topicImageUrl, String CommentDesc) {
-        if(StringUtils.isBlank(content) || StringUtils.isBlank(title)){
+        if (StringUtils.isBlank(content) || StringUtils.isBlank(title)) {
             return 0;
         }
         Comment Comment = new Comment();
@@ -103,6 +101,5 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getCommentsByArticleId(Long articleId) {
         return commentMapper.getCommentsByArticleId(articleId);
     }
-
 
 }
