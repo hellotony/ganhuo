@@ -33,7 +33,8 @@ public class FileUploadController {
 
         response.setContentType("textml;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        Part part = request.getPart("myFileName");// myFileName是文件域的name属性值
+        // myFileName是文件域的name属性值
+        Part part = request.getPart("myFileName");
         // 文件类型限制
         String[] allowedType = { "image/bmp", "image/gif", "image/jpeg", "image/png" };
         boolean allowed = Arrays.asList(allowedType).contains(part.getContentType());

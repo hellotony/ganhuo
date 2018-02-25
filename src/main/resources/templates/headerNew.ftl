@@ -2,13 +2,13 @@
     <div class="h-inner">
         <div class="h-top">
             <div class="h-top-left">
-                <a href="http://${host}/" title="">
+                <a href="http://${host!}/" title="">
                     <img src="http://ocgkatm4e.bkt.clouddn.com/logo.png">
                 </a>
-                <div class="web-title"><a href="http://${host}/" title="干货网">干货网</a></div>
+                <div class="web-title"><a href="http://${host!}/" title="干货网">干货网</a></div>
             </div>
             <#--<div class="h-top-right">-->
-                <#--<a href="http://${host}/" title="">-->
+                <#--<a href="http://${host!}/" title="">-->
                     <#--<img src="http://demo.tagdiv.com/newspaper/wp-content/uploads/2016/01/rec728.jpg">-->
                 <#--</a>-->
             <#--</div>-->
@@ -20,10 +20,10 @@
                 <ul class="header-menu">
                 <#list modules as l>
                     <li>
-                        <a href="http://${host}/module/${l.value}" title="${l.name!}">
-                        ${l.name}
+                        <a href="http://${host!}/module/${l.value!}" title="${l.name!}">
+                        ${l.name!}
                                 <#--<div class="v-num">-->
-                                    <#--<span class="add_new">${l.count}+</span>-->
+                                    <#--<span class="add_new">${l.count!}+</span>-->
                                 <#--</div>-->
                         </a>
                     </li>

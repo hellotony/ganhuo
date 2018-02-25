@@ -69,7 +69,7 @@ public class DalConfig{
         druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(20);
         druidDataSource.setFilters("config");
         Properties properties = new Properties();
-        properties.put("config.decrypt", "true");
+        properties.put("config.decrypt", "false");
         druidDataSource.setConnectProperties(properties);
         StatFilter statFilter = new StatFilter();
         statFilter.setSlowSqlMillis(10000);//10s。。慢

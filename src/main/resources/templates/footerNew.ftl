@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="footer-container">
         <#--<div class="footor-logo">-->
-            <#--<a href="http://${host}/">-->
+            <#--<a href="http://${host!}/">-->
                 <#--<img alt="" src="http://demo.tagdiv.com/newspaper/wp-content/uploads/2016/01/logo-white.png">-->
             <#--</a>-->
         <#--</div>-->
@@ -11,7 +11,7 @@
             </div>
             <div class="about-us-info">
                 <#list links as l>
-                    <a href="${l.indexUrl}"><span>${l.title}</span></a>
+                    <a href="${l.indexUrl!}"><span>${l.title!}</span></a>
                 </#list>
 
             </div>
