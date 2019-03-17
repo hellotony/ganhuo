@@ -167,7 +167,7 @@
     </select>
 
     <select id="getLinks" resultMap="articleDescMap">
-        select * from link;
+        select * from article_desc;
     </select>
 
 
